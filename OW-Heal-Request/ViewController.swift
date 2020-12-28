@@ -10,7 +10,49 @@ import Amplify
 import AmplifyPlugins
 import Combine
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        if pickerView == playerNamePicker {
+            return playerNameData.count
+        } else if pickerView == locationPicker {
+            return locationData.count
+        }
+        
+        return 1
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        if pickerView == playerNamePicker {
+            return playerNameData[row]
+        } else if pickerView == locationPicker {
+            return locationData[row]
+        }
+        
+        return ""
+    
+    }
+    
+    
+    @IBOutlet weak var playerNamePicker: UIPickerView!
+    @IBOutlet weak var heroPicker: UIPickerView!
+    @IBOutlet weak var locationPicker: UIPickerView!
+    
+    var playerNameData: [String] = [String]()
+    var heroData: [String] = [String]()
+    var locationData: [String] = [String]()
+    
+    
+    
+    
 
     @IBAction func healRequestBtn(_ sender: Any) {
         
@@ -24,6 +66,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         subscribeHeals()
+        
+        self.playerNamePicker.delegate = self
+        self.playerNamePicker.dataSource = self
+        
+        self.locationPicker.delegate = self
+        self.locationPicker.dataSource = self
+        
+        playerNameData = ["Pun", "The Clout", "Fragmire", "Benzey", "RAWR", "Apple Zachintosh"]
+        
+        locationData = ["In front of you", "Behind you", "Waiting to Spawn", "Left Sticking", "Out of Position", "Putting the team on my back"]
+        
     }
     
     func performOnAppear(){
