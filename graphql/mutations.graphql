@@ -1,0 +1,49 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateHealRequest(
+  $input: CreateHealRequestInput!
+  $condition: ModelHealRequestConditionInput
+) {
+  createHealRequest(input: $input, condition: $condition) {
+    id
+    playerName
+    selectedHero
+    location
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateHealRequest(
+  $input: UpdateHealRequestInput!
+  $condition: ModelHealRequestConditionInput
+) {
+  updateHealRequest(input: $input, condition: $condition) {
+    id
+    playerName
+    selectedHero
+    location
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteHealRequest(
+  $input: DeleteHealRequestInput!
+  $condition: ModelHealRequestConditionInput
+) {
+  deleteHealRequest(input: $input, condition: $condition) {
+    id
+    playerName
+    selectedHero
+    location
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}

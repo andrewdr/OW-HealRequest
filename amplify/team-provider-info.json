@@ -1,0 +1,15 @@
+{
+  "house": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ow-heal-request-house-150738-authRole",
+      "UnauthRoleArn": "arn:aws:iam::257070949822:role/amplify-ow-heal-request-house-150738-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::257070949822:role/amplify-ow-heal-request-house-150738-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-ow-heal-request-house-150738-deployment",
+      "UnauthRoleName": "amplify-ow-heal-request-house-150738-unauthRole",
+      "StackName": "amplify-ow-heal-request-house-150738",
+      "StackId": "arn:aws:cloudformation:us-east-2:257070949822:stack/amplify-ow-heal-request-house-150738/b92ce2b0-4950-11eb-b5fa-0a2a4cc681bc",
+      "AmplifyAppId": "d152v0tlzucdqu"
+    }
+  }
+}

@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CCACDEB80D8B150C5C7AC8C4 /* Pods_OW_Heal_Request.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A0305B9182A83C06CAFDC28 /* Pods_OW_Heal_Request.framework */; };
+		D36C4DE7259A7E3E008BBC74 /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C4DE4259A7E3E008BBC74 /* AmplifyModels.swift */; };
+		D36C4DE8259A7E3E008BBC74 /* HealRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C4DE5259A7E3E008BBC74 /* HealRequest.swift */; };
+		D36C4DE9259A7E3E008BBC74 /* HealRequest+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C4DE6259A7E3E008BBC74 /* HealRequest+Schema.swift */; };
 		D3D3C8E9259A7C8000D87275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D3C8E8259A7C8000D87275 /* AppDelegate.swift */; };
 		D3D3C8EB259A7C8000D87275 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D3C8EA259A7C8000D87275 /* SceneDelegate.swift */; };
 		D3D3C8ED259A7C8000D87275 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D3C8EC259A7C8000D87275 /* ViewController.swift */; };
@@ -14,9 +18,22 @@
 		D3D3C8F3259A7C8000D87275 /* OW_Heal_Request.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3D3C8F1259A7C8000D87275 /* OW_Heal_Request.xcdatamodeld */; };
 		D3D3C8F5259A7C8200D87275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3D3C8F4259A7C8200D87275 /* Assets.xcassets */; };
 		D3D3C8F8259A7C8200D87275 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3D3C8F6259A7C8200D87275 /* LaunchScreen.storyboard */; };
+		2137DD2211A2486584BEEFC4 /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B694B15349437882DAED5B /* AmplifyModels.swift */; };
+		71C95B9441B54173970D0C17 /* HealRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16487D2F27D84144AC7C9138 /* HealRequest.swift */; };
+		09F4A29A1F234C01ACC4F6A0 /* HealRequest+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95285E805724C129B9876FD /* HealRequest+Schema.swift */; };
+		7DF7EC669A8340A0BCC98DAD /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 7200F276D83B47688CB09202 /* amplifyconfiguration.json */; };
+		71CBE149434B4249921D3EBA /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DC1BCAF345F4D10968F8785 /* awsconfiguration.json */; };
+		21ECE3B75CAC48A18DFB93CF /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28D5918A34E4673A53777FB /* Note.swift */; };
+		A7CE33C569C649B6B3C8C1BE /* Note+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CD6ECC14FE4C9DBC1309AA /* Note+Schema.swift */; };
+		60CD5266161942808B456CD7 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C52DD2A384BA9889C00A0 /* Task.swift */; };
+		1FE0F11A1AA0428891E510CF /* Task+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5231F2E8C22542918C92E0FC /* Task+Schema.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A0305B9182A83C06CAFDC28 /* Pods_OW_Heal_Request.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OW_Heal_Request.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D36C4DE4259A7E3E008BBC74 /* AmplifyModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmplifyModels.swift; sourceTree = "<group>"; };
+		D36C4DE5259A7E3E008BBC74 /* HealRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealRequest.swift; sourceTree = "<group>"; };
+		D36C4DE6259A7E3E008BBC74 /* HealRequest+Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HealRequest+Schema.swift"; sourceTree = "<group>"; };
 		D3D3C8E5259A7C8000D87275 /* OW-Heal-Request.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OW-Heal-Request.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3D3C8E8259A7C8000D87275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3D3C8EA259A7C8000D87275 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +43,19 @@
 		D3D3C8F4259A7C8200D87275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3D3C8F7259A7C8200D87275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3D3C8F9259A7C8200D87275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD20A36FC889B01CD44ED112 /* Pods-OW-Heal-Request.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OW-Heal-Request.release.xcconfig"; path = "Target Support Files/Pods-OW-Heal-Request/Pods-OW-Heal-Request.release.xcconfig"; sourceTree = "<group>"; };
+		E4A9BA6219DD208FA097D612 /* Pods-OW-Heal-Request.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OW-Heal-Request.debug.xcconfig"; path = "Target Support Files/Pods-OW-Heal-Request/Pods-OW-Heal-Request.debug.xcconfig"; sourceTree = "<group>"; };
+		34B694B15349437882DAED5B /* AmplifyModels.swift */ = {isa = PBXFileReference; name = "AmplifyModels.swift"; path = "amplify/generated/models/AmplifyModels.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
+		16487D2F27D84144AC7C9138 /* HealRequest.swift */ = {isa = PBXFileReference; name = "HealRequest.swift"; path = "amplify/generated/models/HealRequest.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
+		D95285E805724C129B9876FD /* HealRequest+Schema.swift */ = {isa = PBXFileReference; name = "HealRequest+Schema.swift"; path = "amplify/generated/models/HealRequest+Schema.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
+		D9E47557A7204FE6B13FA65B /* amplifytools.xcconfig */ = {isa = PBXFileReference; name = "amplifytools.xcconfig"; path = "amplifytools.xcconfig"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = text.xcconfig; explicitFileType = undefined; includeInIndex = 0; };
+		7200F276D83B47688CB09202 /* amplifyconfiguration.json */ = {isa = PBXFileReference; name = "amplifyconfiguration.json"; path = "amplifyconfiguration.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3DC1BCAF345F4D10968F8785 /* awsconfiguration.json */ = {isa = PBXFileReference; name = "awsconfiguration.json"; path = "awsconfiguration.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C05FD688B9C14899A67C2F19 /* schema.graphql */ = {isa = PBXFileReference; name = "schema.graphql"; path = "amplify/backend/api/amplifyDatasource/schema.graphql"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = text; explicitFileType = undefined; includeInIndex = 0; };
+		F28D5918A34E4673A53777FB /* Note.swift */ = {isa = PBXFileReference; name = "Note.swift"; path = "amplify/generated/models/Note.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
+		A5CD6ECC14FE4C9DBC1309AA /* Note+Schema.swift */ = {isa = PBXFileReference; name = "Note+Schema.swift"; path = "amplify/generated/models/Note+Schema.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
+		B30C52DD2A384BA9889C00A0 /* Task.swift */ = {isa = PBXFileReference; name = "Task.swift"; path = "amplify/generated/models/Task.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
+		5231F2E8C22542918C92E0FC /* Task+Schema.swift */ = {isa = PBXFileReference; name = "Task+Schema.swift"; path = "amplify/generated/models/Task+Schema.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +63,51 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCACDEB80D8B150C5C7AC8C4 /* Pods_OW_Heal_Request.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E746D94042143292A175885 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A0305B9182A83C06CAFDC28 /* Pods_OW_Heal_Request.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3AE9B7DE979B0DCA720DA83 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E4A9BA6219DD208FA097D612 /* Pods-OW-Heal-Request.debug.xcconfig */,
+				DD20A36FC889B01CD44ED112 /* Pods-OW-Heal-Request.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D36C4DE3259A7E3E008BBC74 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				D36C4DE4259A7E3E008BBC74 /* AmplifyModels.swift */,
+				D36C4DE5259A7E3E008BBC74 /* HealRequest.swift */,
+				D36C4DE6259A7E3E008BBC74 /* HealRequest+Schema.swift */,
+			);
+			name = models;
+			path = amplify/generated/models;
+			sourceTree = "<group>";
+		};
 		D3D3C8DC259A7C8000D87275 = {
 			isa = PBXGroup;
 			children = (
+				385D1C802DF04ED19BD32190 /* AmplifyConfig */,
+				EFC37CAC2258468B85EF925B /* AmplifyModels */,
+				D36C4DE3259A7E3E008BBC74 /* models */,
 				D3D3C8E7259A7C8000D87275 /* OW-Heal-Request */,
 				D3D3C8E6259A7C8000D87275 /* Products */,
+				B3AE9B7DE979B0DCA720DA83 /* Pods */,
+				9E746D94042143292A175885 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +134,41 @@
 			path = "OW-Heal-Request";
 			sourceTree = "<group>";
 		};
+		EFC37CAC2258468B85EF925B /* AmplifyModels */ = {
+			isa = PBXGroup;
+			children = (
+				34B694B15349437882DAED5B /* AmplifyModels.swift */,
+				16487D2F27D84144AC7C9138 /* HealRequest.swift */,
+				D95285E805724C129B9876FD /* HealRequest+Schema.swift */,
+				F28D5918A34E4673A53777FB /* Note.swift */,
+				A5CD6ECC14FE4C9DBC1309AA /* Note+Schema.swift */,
+				B30C52DD2A384BA9889C00A0 /* Task.swift */,
+				5231F2E8C22542918C92E0FC /* Task+Schema.swift */,
+			);
+			name = AmplifyModels;
+			path = .;
+			sourceTree = "<group>";
+		};
+		385D1C802DF04ED19BD32190 /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				D9E47557A7204FE6B13FA65B /* amplifytools.xcconfig */,
+				7200F276D83B47688CB09202 /* amplifyconfiguration.json */,
+				3DC1BCAF345F4D10968F8785 /* awsconfiguration.json */,
+				C05FD688B9C14899A67C2F19 /* schema.graphql */,
+			);
+			name = AmplifyConfig;
+			path = .;
+			sourceTree = "<group>";
+		};
+		9CA078AB23DA49C0A35B47D6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			path = undefined;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3D3C8FC259A7C8200D87275 /* Build configuration list for PBXNativeTarget "OW-Heal-Request" */;
 			buildPhases = (
+				16DAFE436625CDE3EE6B5127 /* [CP] Check Pods Manifest.lock */,
 				D3D3C8E1259A7C8000D87275 /* Sources */,
 				D3D3C8E2259A7C8000D87275 /* Frameworks */,
 				D3D3C8E3259A7C8000D87275 /* Resources */,
+				185B1A0392DA6D9C5E68C1E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,20 +231,74 @@
 				D3D3C8F8259A7C8200D87275 /* LaunchScreen.storyboard in Resources */,
 				D3D3C8F5259A7C8200D87275 /* Assets.xcassets in Resources */,
 				D3D3C8F0259A7C8000D87275 /* Main.storyboard in Resources */,
+				7DF7EC669A8340A0BCC98DAD /* amplifyconfiguration.json in Resources */,
+				71CBE149434B4249921D3EBA /* awsconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		16DAFE436625CDE3EE6B5127 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OW-Heal-Request-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		185B1A0392DA6D9C5E68C1E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OW-Heal-Request/Pods-OW-Heal-Request-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OW-Heal-Request/Pods-OW-Heal-Request-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OW-Heal-Request/Pods-OW-Heal-Request-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D3D3C8E1259A7C8000D87275 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D36C4DE7259A7E3E008BBC74 /* AmplifyModels.swift in Sources */,
 				D3D3C8ED259A7C8000D87275 /* ViewController.swift in Sources */,
 				D3D3C8E9259A7C8000D87275 /* AppDelegate.swift in Sources */,
+				D36C4DE8259A7E3E008BBC74 /* HealRequest.swift in Sources */,
+				D36C4DE9259A7E3E008BBC74 /* HealRequest+Schema.swift in Sources */,
 				D3D3C8EB259A7C8000D87275 /* SceneDelegate.swift in Sources */,
 				D3D3C8F3259A7C8000D87275 /* OW_Heal_Request.xcdatamodeld in Sources */,
+				2137DD2211A2486584BEEFC4 /* AmplifyModels.swift in Sources */,
+				71C95B9441B54173970D0C17 /* HealRequest.swift in Sources */,
+				09F4A29A1F234C01ACC4F6A0 /* HealRequest+Schema.swift in Sources */,
+				21ECE3B75CAC48A18DFB93CF /* Note.swift in Sources */,
+				A7CE33C569C649B6B3C8C1BE /* Note+Schema.swift in Sources */,
+				60CD5266161942808B456CD7 /* Task.swift in Sources */,
+				1FE0F11A1AA0428891E510CF /* Task+Schema.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +442,7 @@
 		};
 		D3D3C8FD259A7C8200D87275 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4A9BA6219DD208FA097D612 /* Pods-OW-Heal-Request.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -306,6 +462,7 @@
 		};
 		D3D3C8FE259A7C8200D87275 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD20A36FC889B01CD44ED112 /* Pods-OW-Heal-Request.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -1,0 +1,15 @@
+projects:
+  amplifyDatasource:
+    schemaPath: graphql/schema.json
+    includes:
+      - '*.graphql'
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: swift
+        generatedFileName: owAPI.swift
+        docsFilePath: graphql
+extensions:
+  amplify:
+    version: 3
