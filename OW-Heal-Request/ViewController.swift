@@ -21,6 +21,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         if pickerView == playerNamePicker {
             return playerNameData.count
+        } else if pickerView == heroPicker {
+            return heroData.count
         } else if pickerView == locationPicker {
             return locationData.count
         }
@@ -33,6 +35,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         if pickerView == playerNamePicker {
             return playerNameData[row]
+        } else if pickerView == heroPicker {
+            return heroData[row]
         } else if pickerView == locationPicker {
             return locationData[row]
         }
@@ -70,11 +74,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.playerNamePicker.delegate = self
         self.playerNamePicker.dataSource = self
         
+        self.heroPicker.delegate = self
+        self.heroPicker.dataSource = self
+        
         self.locationPicker.delegate = self
         self.locationPicker.dataSource = self
         
-        playerNameData = ["Pun", "The Clout", "Fragmire", "Benzey", "RAWR", "Apple Zachintosh"]
         
+        playerNameData = ["Pun", "The Clout", "Fragmire", "Benzey", "RAWR", "Apple Zachintosh"]
+        heroData = ["Ana", "Ashe", "Baptiste", "Bastion", "Brigitte", "D.Va", "Doomfist", "Echo", "Genji", "Hanzo", "Junkrat", "Lucio", "McCree", "Mei", "Mercy", "Moira", "Orisa", "Pharah", "Reaper", "Reinhardt", "Roadhog", "Sigma", "Soldier: 76", "Sombra", "Symmetra", "Torbjorn", "Tracer", "Widowmaker", "Winston", "Wrecking Ball", "Zarya", "Zenyatta"]
         locationData = ["In front of you", "Behind you", "Waiting to Spawn", "Left Sticking", "Out of Position", "Putting the team on my back"]
         
     }
