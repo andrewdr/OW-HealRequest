@@ -46,13 +46,29 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     
+    var selectedPlayer: String?
+    var selectedHero: String?
+    var selectedLocation: String?
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        selectedPlayer = playerNameData[row]
+        selectedHero = heroData[row]
+        selectedLocation = locationData[row]
+        
+//        print(selectedPlayer!, selectedHero!, selectedLocation!)
+       
+        
+    }
+    
+    
     @IBOutlet weak var playerNamePicker: UIPickerView!
     @IBOutlet weak var heroPicker: UIPickerView!
     @IBOutlet weak var locationPicker: UIPickerView!
     
-    var playerNameData: [String] = [String]()
-    var heroData: [String] = [String]()
-    var locationData: [String] = [String]()
+    var playerNameData: [String] = ["Pun", "The Clout", "Fragmire", "Benzey", "RAWR", "Apple Zachintosh"]
+    var heroData: [String] = ["Ana", "Ashe", "Baptiste", "Bastion", "Brigitte", "D.Va", "Doomfist", "Echo", "Genji", "Hanzo", "Junkrat", "Lucio", "McCree", "Mei", "Mercy", "Moira", "Orisa", "Pharah", "Reaper", "Reinhardt", "Roadhog", "Sigma", "Soldier: 76", "Sombra", "Symmetra", "Torbjorn", "Tracer", "Widowmaker", "Winston", "Wrecking Ball", "Zarya", "Zenyatta"]
+    var locationData: [String] = ["In front of you", "Behind you", "Waiting to Spawn", "Left Sticking", "Out of Position", "Putting the team on my back"]
     
     
     
@@ -79,11 +95,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         self.locationPicker.delegate = self
         self.locationPicker.dataSource = self
-        
-        
-        playerNameData = ["Pun", "The Clout", "Fragmire", "Benzey", "RAWR", "Apple Zachintosh"]
-        heroData = ["Ana", "Ashe", "Baptiste", "Bastion", "Brigitte", "D.Va", "Doomfist", "Echo", "Genji", "Hanzo", "Junkrat", "Lucio", "McCree", "Mei", "Mercy", "Moira", "Orisa", "Pharah", "Reaper", "Reinhardt", "Roadhog", "Sigma", "Soldier: 76", "Sombra", "Symmetra", "Torbjorn", "Tracer", "Widowmaker", "Winston", "Wrecking Ball", "Zarya", "Zenyatta"]
-        locationData = ["In front of you", "Behind you", "Waiting to Spawn", "Left Sticking", "Out of Position", "Putting the team on my back"]
         
     }
     
