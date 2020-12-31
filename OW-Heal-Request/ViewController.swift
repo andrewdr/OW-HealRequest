@@ -67,7 +67,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 selectedLocation = locationData[row]
             }
             
-        print(selectedPlayer ?? "Pun", selectedHero ?? "Ana", selectedLocation ?? "In front of you")
+//        print(selectedPlayer ?? "Pun", selectedHero ?? "Ana", selectedLocation ?? "In front of you")
         
     }
     
@@ -79,7 +79,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
     @IBAction func healRequestBtn(_ sender: Any) {
         
-//        requestHeals()
+        requestHeals()
     
     }
     
@@ -106,7 +106,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func requestHeals(){
         
-        let healRequest = HealRequest(playerName: "Pun", selectedHero: "Genji", location: "Out of Position")
+        let healRequest = HealRequest(playerName: selectedPlayer ?? "Pun", selectedHero: selectedHero ?? "Ana", location: selectedLocation ?? "Out of Position")
+        
    
         Amplify.DataStore.save(healRequest){ result in
             switch(result) {
@@ -114,9 +115,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 print("Saved item: \(savedRequest)")
             case .failure(let error):
                 print("Could not save item to datastore: \(error)")
-            
+
             }
-            
+
         }
     }
     
