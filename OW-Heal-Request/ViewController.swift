@@ -119,6 +119,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             }
 
         }
+        
+        healsSent()
     }
     
     
@@ -150,6 +152,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                      print("Model could not be decoded: \(error)")
                    }
                })
+    }
+    
+    func healsSent(){
+        
+        let requestSentAlert = UIAlertController(title: "SUCCESS!", message: "Your heal request has been submitted, heals will be dispatched shortly.", preferredStyle: .alert)
+        
+        requestSentAlert.addAction(UIAlertAction(title: "Go Back To Winning", style: .cancel, handler: nil))
+        
+        self.present(requestSentAlert, animated: true, completion: nil)
     }
     
 
