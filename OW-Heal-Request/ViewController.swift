@@ -65,12 +65,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 selectedHero = heroData[row]
             }else if pickerView == locationPicker {
                 selectedLocation = locationData[row]
-                
-                print(selectedPlayer, selectedHero, selectedLocation)
             }
             
-            
-        
+        print(selectedPlayer ?? "Pun", selectedHero ?? "Ana", selectedLocation ?? "In front of you")
         
     }
     
@@ -82,10 +79,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
     @IBAction func healRequestBtn(_ sender: Any) {
         
-//        performOnAppear()
-        
-
-        
+//        requestHeals()
+    
     }
     
     
@@ -109,7 +104,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     }
     
-    func performOnAppear(){
+    func requestHeals(){
         
         let healRequest = HealRequest(playerName: "Pun", selectedHero: "Genji", location: "Out of Position")
    
