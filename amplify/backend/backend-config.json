@@ -16,5 +16,18 @@
         }
       }
     }
+  },
+  "auth": {
+    "cognitob28170e7": {
+      "service": "Cognito",
+      "serviceType": "managed",
+      "providerPlugin": "awscloudformation"
+    }
+  },
+  "analytics": {
+    "GOanalytics": {
+      "service": "Pinpoint",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

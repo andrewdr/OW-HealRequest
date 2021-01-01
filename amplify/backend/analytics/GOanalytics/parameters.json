@@ -1,0 +1,21 @@
+{
+    "appName": "GOanalytics",
+    "roleName": "pinpointLambdaRole83857520",
+    "cloudformationPolicyName": "cloudformationPolicy83857520",
+    "cloudWatchPolicyName": "cloudWatchPolicy83857520",
+    "pinpointPolicyName": "pinpointPolicy83857520",
+    "authPolicyName": "pinpoint_amplify_83857520",
+    "unauthPolicyName": "pinpoint_amplify_83857520",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}
