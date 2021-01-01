@@ -120,7 +120,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
         }
         
-        healsSent()
+        healsSentAlert()
+        
+        
+        
     }
     
     
@@ -154,11 +157,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                })
     }
     
-    func healsSent(){
+    func healsSentAlert(){
         
         let requestSentAlert = UIAlertController(title: "SUCCESS!", message: "Your heal request has been submitted, heals will be dispatched shortly.", preferredStyle: .alert)
         
-        requestSentAlert.addAction(UIAlertAction(title: "Go Back To Winning", style: .cancel, handler: nil))
+        requestSentAlert.addAction(UIAlertAction(title: "Go Back To Winning", style: .cancel, handler:{ action in
+            
+            self.playerNamePicker.selectRow(0, inComponent: 0, animated: true)
+            self.heroPicker.selectRow(0, inComponent: 0, animated: true)
+            self.locationPicker.selectRow(0, inComponent: 0, animated: true)
+        
+        }))
         
         self.present(requestSentAlert, animated: true, completion: nil)
     }
