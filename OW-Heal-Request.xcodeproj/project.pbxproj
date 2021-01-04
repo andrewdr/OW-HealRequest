@@ -17,6 +17,7 @@
 		7DF7EC669A8340A0BCC98DAD /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 7200F276D83B47688CB09202 /* amplifyconfiguration.json */; };
 		A7CE33C569C649B6B3C8C1BE /* Note+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CD6ECC14FE4C9DBC1309AA /* Note+Schema.swift */; };
 		CCACDEB80D8B150C5C7AC8C4 /* Pods_OW_Heal_Request.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A0305B9182A83C06CAFDC28 /* Pods_OW_Heal_Request.framework */; };
+		D3222D4425A31E3B00B80BE3 /* SoundBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3222D4325A31E3B00B80BE3 /* SoundBoardVC.swift */; };
 		D36C4DE7259A7E3E008BBC74 /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C4DE4259A7E3E008BBC74 /* AmplifyModels.swift */; };
 		D36C4DE8259A7E3E008BBC74 /* HealRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C4DE5259A7E3E008BBC74 /* HealRequest.swift */; };
 		D36C4DE9259A7E3E008BBC74 /* HealRequest+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C4DE6259A7E3E008BBC74 /* HealRequest+Schema.swift */; };
@@ -39,6 +40,7 @@
 		A5CD6ECC14FE4C9DBC1309AA /* Note+Schema.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "Note+Schema.swift"; path = "amplify/generated/models/Note+Schema.swift"; sourceTree = "<group>"; };
 		B30C52DD2A384BA9889C00A0 /* Task.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = Task.swift; path = amplify/generated/models/Task.swift; sourceTree = "<group>"; };
 		C05FD688B9C14899A67C2F19 /* schema.graphql */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text; name = schema.graphql; path = amplify/backend/api/amplifyDatasource/schema.graphql; sourceTree = "<group>"; };
+		D3222D4325A31E3B00B80BE3 /* SoundBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoardVC.swift; sourceTree = "<group>"; };
 		D36C4DE4259A7E3E008BBC74 /* AmplifyModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmplifyModels.swift; sourceTree = "<group>"; };
 		D36C4DE5259A7E3E008BBC74 /* HealRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealRequest.swift; sourceTree = "<group>"; };
 		D36C4DE6259A7E3E008BBC74 /* HealRequest+Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HealRequest+Schema.swift"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				D3D3C8EA259A7C8000D87275 /* SceneDelegate.swift */,
 				D3D3C8EC259A7C8000D87275 /* ViewController.swift */,
 				D3D3C8EE259A7C8000D87275 /* Main.storyboard */,
+				D3222D4325A31E3B00B80BE3 /* SoundBoardVC.swift */,
 				D3D3C8F4259A7C8200D87275 /* Assets.xcassets */,
 				D3D3C8F6259A7C8200D87275 /* LaunchScreen.storyboard */,
 				D3D3C8F9259A7C8200D87275 /* Info.plist */,
@@ -291,6 +294,7 @@
 				09F4A29A1F234C01ACC4F6A0 /* HealRequest+Schema.swift in Sources */,
 				21ECE3B75CAC48A18DFB93CF /* Note.swift in Sources */,
 				A7CE33C569C649B6B3C8C1BE /* Note+Schema.swift in Sources */,
+				D3222D4425A31E3B00B80BE3 /* SoundBoardVC.swift in Sources */,
 				60CD5266161942808B456CD7 /* Task.swift in Sources */,
 				1FE0F11A1AA0428891E510CF /* Task+Schema.swift in Sources */,
 			);

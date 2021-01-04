@@ -124,7 +124,7 @@
         <!--Sound Board-->
         <scene sceneID="5k4-YC-fgP">
             <objects>
-                <collectionViewController id="yLM-7v-fdP" sceneMemberID="viewController">
+                <collectionViewController id="yLM-7v-fdP" customClass="SoundBoardVC" customModule="OW_Heal_Request" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="H6m-ZD-8lY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,6 +151,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Sound Board" id="6Zj-i7-I6D"/>
+                    <connections>
+                        <outlet property="soundBoardView" destination="H6m-ZD-8lY" id="JLg-Bm-81h"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B12-q1-RDx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
