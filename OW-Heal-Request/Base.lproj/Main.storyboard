@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qdg-v8-vhS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Heal Request-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OW_Heal_Request" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0BK-Vt-RYI">
-                                <rect key="frame" x="65.5" y="673" width="283" height="53"/>
+                                <rect key="frame" x="65.5" y="717" width="283" height="53"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="K2N-7N-0VR"/>
@@ -38,7 +39,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rl9-TU-UFu">
-                                <rect key="frame" x="20" y="150" width="47" height="21"/>
+                                <rect key="frame" x="20" y="194" width="47" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="8ju-TE-9Tm"/>
                                     <constraint firstAttribute="width" constant="47" id="ZaN-kh-rbd"/>
@@ -48,13 +49,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NW0-Io-vUN">
-                                <rect key="frame" x="20" y="179" width="374" height="98"/>
+                                <rect key="frame" x="20" y="223" width="374" height="98"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="98" id="cED-d8-N9Y"/>
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jH3-wE-5vt">
-                                <rect key="frame" x="20" y="312" width="55" height="21"/>
+                                <rect key="frame" x="20" y="356" width="55" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="8wk-UM-wqA"/>
                                     <constraint firstAttribute="height" constant="21" id="tOo-xI-NZS"/>
@@ -64,13 +65,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DAH-CQ-fKh">
-                                <rect key="frame" x="20" y="341" width="374" height="98"/>
+                                <rect key="frame" x="20" y="385" width="374" height="98"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="98" id="KpL-Hw-qr2"/>
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Okd-yj-nND">
-                                <rect key="frame" x="20" y="474" width="66" height="21"/>
+                                <rect key="frame" x="20" y="518" width="66" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="66" id="EYv-6C-Mh9"/>
                                     <constraint firstAttribute="height" constant="21" id="GEe-5g-eFH"/>
@@ -80,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZd-8j-TpE">
-                                <rect key="frame" x="20" y="503" width="374" height="98"/>
+                                <rect key="frame" x="20" y="547" width="374" height="98"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="98" id="HSJ-l1-r6Y"/>
                                 </constraints>
@@ -109,6 +110,7 @@
                             <constraint firstItem="jH3-wE-5vt" firstAttribute="top" secondItem="NW0-Io-vUN" secondAttribute="bottom" constant="35" id="rMZ-z8-ZYj"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Heal Request" id="I2L-Jf-Yb3"/>
                     <connections>
                         <outlet property="heroPicker" destination="DAH-CQ-fKh" id="tuk-56-kCR"/>
                         <outlet property="locationPicker" destination="pZd-8j-TpE" id="qFn-xo-itw"/>
@@ -117,10 +119,104 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1957.9710144927537" y="89.732142857142847"/>
+        </scene>
+        <!--Sound Board-->
+        <scene sceneID="5k4-YC-fgP">
+            <objects>
+                <collectionViewController id="yLM-7v-fdP" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="H6m-ZD-8lY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rSp-8V-cC6">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="src-oP-q2u">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Yg2-ca-VM9">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="yLM-7v-fdP" id="dkO-1c-U5L"/>
+                            <outlet property="delegate" destination="yLM-7v-fdP" id="cl5-84-kfT"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Sound Board" id="6Zj-i7-I6D"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B12-q1-RDx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1958" y="826"/>
+        </scene>
+        <!--Heals-->
+        <scene sceneID="Rh0-YX-RX2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tk8-4J-FXa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Heals" image="squareshape.fill" catalog="system" id="0KP-3b-HO5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9fV-dU-PMf">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5JE-r9-BY6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UvB-Bi-YAl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="89.732142857142847"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Wpj-h2-ONK">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="qdg-v8-vhS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zJW-yx-kEq">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="tk8-4J-FXa" kind="relationship" relationship="viewControllers" id="y4R-W1-Ury"/>
+                        <segue destination="Nck-qp-RgY" kind="relationship" relationship="viewControllers" id="E9Q-4L-oHp"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iyz-u0-ym9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="137.68115942028987" y="89.732142857142847"/>
+        </scene>
+        <!--Sound-->
+        <scene sceneID="uhO-55-caF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nck-qp-RgY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Sound" image="speaker.fill" catalog="system" id="qqI-hL-GEl"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2CD-Ye-e7I">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yLM-7v-fdP" kind="relationship" relationship="rootViewController" id="9gG-lt-xQQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T4h-9q-WTM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="826"/>
         </scene>
     </scenes>
     <resources>
+        <image name="speaker.fill" catalog="system" width="128" height="128"/>
+        <image name="squareshape.fill" catalog="system" width="128" height="114"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
