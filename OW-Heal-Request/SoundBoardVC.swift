@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 private let reuseIdentifier = "Cell"
 
@@ -23,10 +24,14 @@ class SoundBoardVC: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         self.soundBoardView.dataSource = self
         self.soundBoardView.delegate = self
+        
+        if let flowLayout = self.soundBoardView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.itemSize = CGSize(width: 110, height: 110)
+        }
     }
 
     /*
@@ -49,11 +54,18 @@ class SoundBoardVC: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return 3
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SoundBoardCellVC
+        
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.black.cgColor
+        
+        cell.audioTitle.translatesAutoresizingMaskIntoConstraints = false
+        
+        cell.audioTitle?.text = "Title"
     
         // Configure the cell
     
