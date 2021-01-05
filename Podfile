@@ -11,6 +11,7 @@ target 'OW-Heal-Request' do
  pod 'AmplifyPlugins/AWSAPIPlugin'
  pod 'AmplifyPlugins/AWSDataStorePlugin'
  pod 'AmplifyPlugins/AWSPinpointAnalyticsPlugin'
+ pod 'AmplifyPlugins/AWSS3StoragePlugin'
  pod 'AmplifyPlugins/AWSCognitoAuthPlugin'
 
 end
