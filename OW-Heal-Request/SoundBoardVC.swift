@@ -61,7 +61,7 @@ class SoundBoardVC: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SoundBoardCellVC
         
         cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderColor = UIColor.systemGray.cgColor
         
         cell.audioTitle.translatesAutoresizingMaskIntoConstraints = false
         
