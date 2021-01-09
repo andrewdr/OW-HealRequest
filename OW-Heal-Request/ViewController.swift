@@ -66,8 +66,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             }else if pickerView == locationPicker {
                 selectedLocation = locationData[row]
             }
-            
-//        print(selectedPlayer ?? "Pun", selectedHero ?? "Ana", selectedLocation ?? "In front of you")
         
     }
     
@@ -122,8 +120,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         healsSentAlert()
         
-        
-        
     }
     
     
@@ -172,7 +168,5 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.present(requestSentAlert, animated: true, completion: nil)
     }
     
-
-
 }
 

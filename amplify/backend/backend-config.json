@@ -9,20 +9,13 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "description": "",
-              "apiKeyExpirationDays": 7
+              "apiKeyExpirationDays": 30,
+              "description": "OWapi"
             }
           }
         }
       }
     }
   },
-  "storage": {
-    "ow_heal_request5034ea7d": {
-      "service": "S3",
-      "serviceType": "imported",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": []
-    }
-  }
+  "storage": {}
 }
