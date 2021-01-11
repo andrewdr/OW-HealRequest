@@ -84,7 +84,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        subscribeHeals()
+//        subscribeHeals()
+        
+//        downloadFiles()
+        listFiles()
+        
         
         self.playerNamePicker.delegate = self
         self.playerNamePicker.dataSource = self
@@ -119,7 +123,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         
         healsSentAlert()
-        uploadData()
         
     }
     
@@ -170,7 +173,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     
-//    MARK: - Storage Upload
+//    MARK: - S3 Storage
     
     var resultSink: AnyCancellable?
     var progressSink: AnyCancellable?
@@ -198,6 +201,44 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 
             }
         
+    }
+    
+    
+    func downloadFiles(){
+        
+        let storageOperation = Amplify.Storage.downloadData(key: "TestKey")
+        progressSink = storageOperation.progressPublisher.sink { progress in print("Progress: \(progress)")}
+        resultSink = storageOperation.resultPublisher.sink{
+            
+            if case let .failure(storageError) = $0 {
+                print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
+            }
+            
+        }
+        
+        receiveValue: { data in
+            print("Completed: \(data)")
+        }
+        
+    }
+    
+    
+    func listFiles(){
+        
+        let storageOperation = Amplify.Storage.list()
+//        let sink = Amplify.Storage.list()
+//            .resultPublisher
+        resultSink = storageOperation.resultPublisher.sink {
+                if case let .failure(storageError) = $0 {
+                    print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
+                }
+            }
+            receiveValue: { listResult in
+                print("Completed")
+                listResult.items.forEach { item in
+                    print("Key: \(item.key)")
+                }
+            }
     }
     
     
