@@ -84,7 +84,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        subscribeHeals()
+        subscribeHeals()
         
         self.playerNamePicker.delegate = self
         self.playerNamePicker.dataSource = self
