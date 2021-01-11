@@ -1,5 +1,5 @@
 projects:
-  amplifyDatasource:
+  GoAPI:
     schemaPath: graphql/schema.json
     includes:
       - '*.graphql'
@@ -8,7 +8,7 @@ projects:
     extensions:
       amplify:
         codeGenTarget: swift
-        generatedFileName: owAPI.swift
+        generatedFileName: GoAPI.swift
         docsFilePath: graphql
 extensions:
   amplify:

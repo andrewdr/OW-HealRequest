@@ -4,4 +4,3 @@ type HealRequest @model {
   selectedHero: String!
   location: String!
 }
-
