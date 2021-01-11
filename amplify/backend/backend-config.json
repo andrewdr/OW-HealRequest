@@ -17,5 +17,18 @@
       }
     }
   },
-  "storage": {}
+  "storage": {
+    "GoS3Bucket": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  },
+  "auth": {
+    "owhealrequestca0576fb": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
 }
