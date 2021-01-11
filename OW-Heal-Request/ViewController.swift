@@ -119,6 +119,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         
         healsSentAlert()
+        uploadData()
         
     }
     
@@ -167,6 +168,38 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         self.present(requestSentAlert, animated: true, completion: nil)
     }
+    
+    
+//    MARK: - Storage Upload
+    
+    var resultSink: AnyCancellable?
+    var progressSink: AnyCancellable?
+    
+    func uploadData(){
+        
+        let dataString = "Example File Contents"
+        let data = dataString.data(using: .utf8)!
+        let storageOperation = Amplify.Storage.uploadData(key: "TestKey", data: data)
+        
+        progressSink = storageOperation
+            .progressPublisher
+            .sink{ progress in print("Progress: \(progress)")}
+        
+        resultSink = storageOperation
+            .resultPublisher
+            .sink {
+                if case let .failure(storageError) = $0 {
+                    print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
+                }
+            }
+            
+            receiveValue: { data in
+                print("Completed: \(data)")
+                
+            }
+        
+    }
+    
     
 }
 
