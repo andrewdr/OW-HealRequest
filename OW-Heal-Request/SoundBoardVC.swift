@@ -7,6 +7,9 @@
 
 import UIKit
 import AVFoundation
+import Amplify
+import AmplifyPlugins
+import Combine
 
 private let reuseIdentifier = "Cell"
 
@@ -17,6 +20,8 @@ class SoundBoardVC: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        listFiles()
         
         
 
@@ -102,5 +107,73 @@ class SoundBoardVC: UICollectionViewController {
     
     }
     */
-
-}
+    
+    
+    //    MARK: - S3 Storage
+        
+        var resultSink: AnyCancellable?
+        var progressSink: AnyCancellable?
+        
+        func uploadData(){
+            
+            let dataString = "Example File Contents"
+            let data = dataString.data(using: .utf8)!
+            let storageOperation = Amplify.Storage.uploadData(key: "TestKey", data: data)
+            
+            progressSink = storageOperation
+                .progressPublisher
+                .sink{ progress in print("Progress: \(progress)")}
+            
+            resultSink = storageOperation
+                .resultPublisher
+                .sink {
+                    if case let .failure(storageError) = $0 {
+                        print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
+                    }
+                }
+                
+                receiveValue: { data in
+                    print("Completed: \(data)")
+                    
+                }
+            
+        }
+        
+        
+        func downloadFiles(){
+            
+            let storageOperation = Amplify.Storage.downloadData(key: "TestKey")
+            progressSink = storageOperation.progressPublisher.sink { progress in print("Progress: \(progress)")}
+            resultSink = storageOperation.resultPublisher.sink{
+                
+                if case let .failure(storageError) = $0 {
+                    print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
+                }
+                
+            }
+            
+            receiveValue: { data in
+                print("Completed: \(data)")
+            }
+            
+        }
+        
+        
+        func listFiles(){
+            
+            let storageOperation = Amplify.Storage.list()
+            resultSink = storageOperation.resultPublisher.sink {
+                    if case let .failure(storageError) = $0 {
+                        print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
+                    }
+                }
+                receiveValue: { listResult in
+                    print("Completed")
+                    listResult.items.forEach { item in
+                        print("Key: \(item.key)")
+                    }
+                }
+        }
+        
+        
+    }
