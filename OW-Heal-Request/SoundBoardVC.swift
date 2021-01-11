@@ -138,27 +138,40 @@ class SoundBoardVC: UICollectionViewController {
                 }
             
         }
+    
         
-        
-        func downloadFiles(){
+    //  Download to in-memory buffer Data object
+        func downloadFilesToBufferData(){
             
-            let storageOperation = Amplify.Storage.downloadData(key: "TestKey")
-            progressSink = storageOperation.progressPublisher.sink { progress in print("Progress: \(progress)")}
-            resultSink = storageOperation.resultPublisher.sink{
-                
-                if case let .failure(storageError) = $0 {
-                    print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
-                }
-                
-            }
+
             
-            receiveValue: { data in
-                print("Completed: \(data)")
-            }
+//            let storageOperation = Amplify.Storage.downloadData(key: "TestKey")
+//            progressSink = storageOperation.progressPublisher.sink { progress in print("Progress: \(progress)")}
+//            resultSink = storageOperation.resultPublisher.sink{
+//
+//                if case let .failure(storageError) = $0 {
+//                    print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
+//                }
+//
+//            }
+//
+//            receiveValue: { data in
+//                print("Completed: \(data)")
+//            }
             
         }
+    
+    
+//    func downloadToFileURL(){
+//
+//        let downloadToFileName = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//
+//        let storageOperation = Amplify.Storage.downloadFile(key: "DumpTrucks.mp3", local: <#T##URL#>)
+//
+//    }
         
-        
+        var audioArray = [String]()
+    
         func listFiles(){
             
             let storageOperation = Amplify.Storage.list()
@@ -170,7 +183,10 @@ class SoundBoardVC: UICollectionViewController {
                 receiveValue: { listResult in
                     print("Completed")
                     listResult.items.forEach { item in
-                        print("Key: \(item.key)")
+//                      print("Key: \(item.key)")
+                        self.audioArray.append(item.key)
+                        
+                        print(self.audioArray)
                     }
                 }
         }
