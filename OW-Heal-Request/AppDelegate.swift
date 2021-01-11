@@ -32,8 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
            try Amplify.add(plugin: apiPlugin)
            try Amplify.add(plugin: dataStorePlugin)
-//           try Amplify.add(plugin: AWSCognitoAuthPlugin())
-//           try Amplify.add(plugin: AWSS3StoragePlugin())
+           try Amplify.add(plugin: AWSCognitoAuthPlugin())
+           try Amplify.add(plugin: AWSS3StoragePlugin())
 //           try Amplify.add(plugin: AWSPinpointAnalyticsPlugin())
            try Amplify.configure()
            print("Initialized Amplify");
