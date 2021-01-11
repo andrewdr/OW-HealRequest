@@ -22,8 +22,8 @@ class SoundBoardVC: UICollectionViewController {
         super.viewDidLoad()
         
         listFiles()
-        
-        
+
+      
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -162,13 +162,23 @@ class SoundBoardVC: UICollectionViewController {
         }
     
     
-//    func downloadToFileURL(){
-//
-//        let downloadToFileName = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//
-//        let storageOperation = Amplify.Storage.downloadFile(key: "DumpTrucks.mp3", local: <#T##URL#>)
-//
-//    }
+    func downloadToFileURL(){
+        
+        print("Downloaded File Array: \(audioArray)")
+
+        let downloadToFileName = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+
+        let storageOperation = Amplify.Storage.downloadFile(key: "DumpTrucks.mp3", local: downloadToFileName)
+            progressSink = storageOperation.progressPublisher.sink{ progress in print("Progress: \(progress)")}
+            resultSink = storageOperation.resultPublisher.sink {
+                if case let .failure(storageError) = $0 {
+                    print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
+                }
+            }
+        receiveValue: {
+            print("Completed downloadToFileURL")
+        }
+    }
         
         var audioArray = [String]()
     
@@ -184,12 +194,17 @@ class SoundBoardVC: UICollectionViewController {
                     print("Completed")
                     listResult.items.forEach { item in
 //                      print("Key: \(item.key)")
-                        self.audioArray.append(item.key)
                         
-                        print(self.audioArray)
+                        self.audioArray.append(item.key)
+//                        print("Audio Tracks: \(self.audioArray)")
+                        
+                        self.downloadToFileURL()
+                        
                     }
                 }
+            
         }
+
         
         
     }
