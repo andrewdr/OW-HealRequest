@@ -11,25 +11,28 @@ import Amplify
 import AmplifyPlugins
 import Combine
 
+
+
 private let reuseIdentifier = "Cell"
+
 
 class SoundBoardVC: UICollectionViewController {
     
     @IBOutlet var soundBoardView: UICollectionView!
     
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         listFiles()
-
-      
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        
+        
+        
 
         // Register cell classes
 //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
 
         self.soundBoardView.dataSource = self
         self.soundBoardView.delegate = self
@@ -55,25 +58,30 @@ class SoundBoardVC: UICollectionViewController {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
+    
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 3
+
+        return 1
     }
+    
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SoundBoardCellVC
-        
+
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.systemGray.cgColor
-        
+
         cell.audioTitle.translatesAutoresizingMaskIntoConstraints = false
-        
+
         cell.audioTitle?.text = "Title"
-    
+
         // Configure the cell
-    
+
         return cell
     }
 
@@ -143,28 +151,26 @@ class SoundBoardVC: UICollectionViewController {
     //  Download to in-memory buffer Data object
         func downloadFilesToBufferData(){
             
+            let storageOperation = Amplify.Storage.downloadData(key: "DumpTrucks.mp3")
+            progressSink = storageOperation.progressPublisher.sink { progress in print("Progress: \(progress)")}
+            resultSink = storageOperation.resultPublisher.sink{
 
-            
-//            let storageOperation = Amplify.Storage.downloadData(key: "TestKey")
-//            progressSink = storageOperation.progressPublisher.sink { progress in print("Progress: \(progress)")}
-//            resultSink = storageOperation.resultPublisher.sink{
-//
-//                if case let .failure(storageError) = $0 {
-//                    print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
-//                }
-//
-//            }
-//
-//            receiveValue: { data in
-//                print("Completed: \(data)")
-//            }
+                if case let .failure(storageError) = $0 {
+                    print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
+                }
+
+            }
+
+            receiveValue: { data in
+                print("Completed: \(data)")
+            }
             
         }
     
     
     func downloadToFileURL(){
         
-        print("Downloaded File Array: \(audioArray)")
+//        print("Downloaded File Array: \(audioArrayCompHandler)")
 
         let downloadToFileName = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
 
@@ -180,31 +186,43 @@ class SoundBoardVC: UICollectionViewController {
         }
     }
         
-        var audioArray = [String]()
     
-        func listFiles(){
-            
+//    var audioFileCount: Int = 0
+//
+//    func getAudioFileCount() -> Int{
+//
+//        audioFileCount = audioArrayCompHandler.count
+//
+//        return audioFileCount
+//
+//    }
+    
+//    var audioCompletionHandler: [() -> Void] = []
+    
+    
+    func listFiles(){
+
+        var tempArray: [String] = []
+
             let storageOperation = Amplify.Storage.list()
             resultSink = storageOperation.resultPublisher.sink {
                     if case let .failure(storageError) = $0 {
                         print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
                     }
                 }
-                receiveValue: { listResult in
-                    print("Completed")
-                    listResult.items.forEach { item in
-//                      print("Key: \(item.key)")
-                        
-                        self.audioArray.append(item.key)
-//                        print("Audio Tracks: \(self.audioArray)")
-                        
-                        self.downloadToFileURL()
-                        
-                    }
-                }
-            
-        }
 
-        
-        
+            receiveValue: { listResult in
+
+                    listResult.items.forEach { item in
+
+                        tempArray.append(item.key)
+                        
+                        print(tempArray)
+
+
+                    }
+
+                }
+        }
+    
     }
