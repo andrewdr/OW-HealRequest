@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "owhealrequestca0576fb_identitypool_ca0576fb",
-    "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "owhealca0576fb",
-    "userPoolName": "owhealrequestca0576fb_userpool_ca0576fb",
+    "identityPoolName": "owhealrequest57cdcf88_identitypool_57cdcf88",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "owheal57cdcf88",
+    "userPoolName": "owhealrequest57cdcf88_userpool_57cdcf88",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -20,7 +20,7 @@
     "requiredAttributes": [
         "email"
     ],
-    "userpoolClientGenerateSecret": true,
+    "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
         "email"
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "owhealca0576fb_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "owheal57cdcf88_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "ca0576fb",
-    "resourceName": "owhealrequestca0576fb",
+    "sharedId": "57cdcf88",
+    "resourceName": "owhealrequest57cdcf88",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [

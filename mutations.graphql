@@ -45,7 +45,7 @@ mutation CreateAudioInfo(
   createAudioInfo(input: $input, condition: $condition) {
     id
     audioTitle
-    audioURL
+    audioFileName
     createdAt
     updatedAt
   }
@@ -57,7 +57,7 @@ mutation UpdateAudioInfo(
   updateAudioInfo(input: $input, condition: $condition) {
     id
     audioTitle
-    audioURL
+    audioFileName
     createdAt
     updatedAt
   }
@@ -69,7 +69,7 @@ mutation DeleteAudioInfo(
   deleteAudioInfo(input: $input, condition: $condition) {
     id
     audioTitle
-    audioURL
+    audioFileName
     createdAt
     updatedAt
   }

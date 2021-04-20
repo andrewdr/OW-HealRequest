@@ -63,8 +63,9 @@ class SoundBoardVC: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
+        
 
-        return 1
+        return self.downloadedAudio.count
     }
     
 
@@ -122,50 +123,50 @@ class SoundBoardVC: UICollectionViewController {
         var resultSink: AnyCancellable?
         var progressSink: AnyCancellable?
         
-        func uploadData(){
-            
-            let dataString = "Example File Contents"
-            let data = dataString.data(using: .utf8)!
-            let storageOperation = Amplify.Storage.uploadData(key: "TestKey", data: data)
-            
-            progressSink = storageOperation
-                .progressPublisher
-                .sink{ progress in print("Progress: \(progress)")}
-            
-            resultSink = storageOperation
-                .resultPublisher
-                .sink {
-                    if case let .failure(storageError) = $0 {
-                        print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
-                    }
-                }
-                
-                receiveValue: { data in
-                    print("Completed: \(data)")
-                    
-                }
-            
-        }
+//        func uploadData(){
+//
+//            let dataString = "Example File Contents"
+//            let data = dataString.data(using: .utf8)!
+//            let storageOperation = Amplify.Storage.uploadData(key: "TestKey", data: data)
+//
+//            progressSink = storageOperation
+//                .progressPublisher
+//                .sink{ progress in print("Progress: \(progress)")}
+//
+//            resultSink = storageOperation
+//                .resultPublisher
+//                .sink {
+//                    if case let .failure(storageError) = $0 {
+//                        print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
+//                    }
+//                }
+//
+//                receiveValue: { data in
+//                    print("Completed: \(data)")
+//
+//                }
+//
+//        }
     
         
     //  Download to in-memory buffer Data object
-        func downloadFilesToBufferData(){
-            
-            let storageOperation = Amplify.Storage.downloadData(key: "DumpTrucks.mp3")
-            progressSink = storageOperation.progressPublisher.sink { progress in print("Progress: \(progress)")}
-            resultSink = storageOperation.resultPublisher.sink{
-
-                if case let .failure(storageError) = $0 {
-                    print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
-                }
-
-            }
-
-            receiveValue: { data in
-                print("Completed: \(data)")
-            }
-            
-        }
+//        func downloadFilesToBufferData(){
+//
+//            let storageOperation = Amplify.Storage.downloadData(key: "DumpTrucks.mp3")
+//            progressSink = storageOperation.progressPublisher.sink { progress in print("Progress: \(progress)")}
+//            resultSink = storageOperation.resultPublisher.sink{
+//
+//                if case let .failure(storageError) = $0 {
+//                    print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
+//                }
+//
+//            }
+//
+//            receiveValue: { data in
+//                print("Completed: \(data)")
+//            }
+//
+//        }
     
     
     func downloadToFileURL(){
@@ -200,6 +201,8 @@ class SoundBoardVC: UICollectionViewController {
 //    var audioCompletionHandler: [() -> Void] = []
     
     
+    var downloadedAudio: [String] = []
+    
     func listFiles(){
 
         var tempArray: [String] = []
@@ -217,12 +220,21 @@ class SoundBoardVC: UICollectionViewController {
 
                         tempArray.append(item.key)
                         
-                        print(tempArray)
-
-
+                        self.downloadedAudio = tempArray
+                        
+//                        let saveSink = Amplify.DataStore.save
+                        
+                        
+                        
+                        
+                        print("The listed files audio is/are \(self.downloadedAudio)")
+                    
                     }
 
                 }
+        
+        soundBoardView.reloadData()
         }
+
     
     }

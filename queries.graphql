@@ -30,7 +30,7 @@ query GetAudioInfo($id: ID!) {
   getAudioInfo(id: $id) {
     id
     audioTitle
-    audioURL
+    audioFileName
     createdAt
     updatedAt
   }
@@ -44,7 +44,7 @@ query ListAudioInfos(
     items {
       id
       audioTitle
-      audioURL
+      audioFileName
       createdAt
       updatedAt
     }

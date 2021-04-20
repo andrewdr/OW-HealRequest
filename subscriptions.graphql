@@ -33,7 +33,7 @@ subscription OnCreateAudioInfo {
   onCreateAudioInfo {
     id
     audioTitle
-    audioURL
+    audioFileName
     createdAt
     updatedAt
   }
@@ -42,7 +42,7 @@ subscription OnUpdateAudioInfo {
   onUpdateAudioInfo {
     id
     audioTitle
-    audioURL
+    audioFileName
     createdAt
     updatedAt
   }
@@ -51,7 +51,7 @@ subscription OnDeleteAudioInfo {
   onDeleteAudioInfo {
     id
     audioTitle
-    audioURL
+    audioFileName
     createdAt
     updatedAt
   }

@@ -27,6 +27,8 @@
 		D3D3C8F3259A7C8000D87275 /* OW_Heal_Request.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3D3C8F1259A7C8000D87275 /* OW_Heal_Request.xcdatamodeld */; };
 		D3D3C8F5259A7C8200D87275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3D3C8F4259A7C8200D87275 /* Assets.xcassets */; };
 		D3D3C8F8259A7C8200D87275 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3D3C8F6259A7C8200D87275 /* LaunchScreen.storyboard */; };
+		AAD1944C01A848F7BCA9AA3D /* AudioInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A519C01F6248048C4F419E /* AudioInfo.swift */; };
+		0C5DD09ADBD149D899B43CBC /* AudioInfo+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54346C59EE743BD8263B7D6 /* AudioInfo+Schema.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		DD20A36FC889B01CD44ED112 /* Pods-OW-Heal-Request.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OW-Heal-Request.release.xcconfig"; path = "Target Support Files/Pods-OW-Heal-Request/Pods-OW-Heal-Request.release.xcconfig"; sourceTree = "<group>"; };
 		E4A9BA6219DD208FA097D612 /* Pods-OW-Heal-Request.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OW-Heal-Request.debug.xcconfig"; path = "Target Support Files/Pods-OW-Heal-Request/Pods-OW-Heal-Request.debug.xcconfig"; sourceTree = "<group>"; };
 		F28D5918A34E4673A53777FB /* Note.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = Note.swift; path = amplify/generated/models/Note.swift; sourceTree = "<group>"; };
+		D9A519C01F6248048C4F419E /* AudioInfo.swift */ = {isa = PBXFileReference; name = "AudioInfo.swift"; path = "amplify/generated/models/AudioInfo.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
+		C54346C59EE743BD8263B7D6 /* AudioInfo+Schema.swift */ = {isa = PBXFileReference; name = "AudioInfo+Schema.swift"; path = "amplify/generated/models/AudioInfo+Schema.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,9 +168,19 @@
 				A5CD6ECC14FE4C9DBC1309AA /* Note+Schema.swift */,
 				B30C52DD2A384BA9889C00A0 /* Task.swift */,
 				5231F2E8C22542918C92E0FC /* Task+Schema.swift */,
+				D9A519C01F6248048C4F419E /* AudioInfo.swift */,
+				C54346C59EE743BD8263B7D6 /* AudioInfo+Schema.swift */,
 			);
 			name = AmplifyModels;
 			path = .;
+			sourceTree = "<group>";
+		};
+		2C165C62FCAD49B3A676FB60 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			path = undefined;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +313,8 @@
 				D3222D4425A31E3B00B80BE3 /* SoundBoardVC.swift in Sources */,
 				60CD5266161942808B456CD7 /* Task.swift in Sources */,
 				1FE0F11A1AA0428891E510CF /* Task+Schema.swift in Sources */,
+				AAD1944C01A848F7BCA9AA3D /* AudioInfo.swift in Sources */,
+				0C5DD09ADBD149D899B43CBC /* AudioInfo+Schema.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

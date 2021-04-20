@@ -1,6 +1,6 @@
 {
   "api": {
-    "GoAPI": {
+    "GoAPI2": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
@@ -8,8 +8,8 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 30,
-              "description": "GoAPIkey"
+              "apiKeyExpirationDays": 300,
+              "description": "GoApiKey"
             }
           },
           "additionalAuthenticationProviders": []
@@ -24,7 +24,7 @@
     }
   },
   "auth": {
-    "owhealrequestca0576fb": {
+    "owhealrequest57cdcf88": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
