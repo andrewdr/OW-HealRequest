@@ -19,32 +19,14 @@ private let reuseIdentifier = "Cell"
 class SoundBoardVC: UICollectionViewController {
     
     @IBOutlet var soundBoardView: UICollectionView!
+    
+    var globalAudioFileArray: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        listFiles(){ (audioFileArray) in
-            
-            var tempArray: [String] = []
-            
-            for titles in audioFileArray {
-                
-                let editedTitles = titles.dropLast(4)
-                
-                tempArray.append(String(editedTitles))
-                
-            }
-            
-        self.globalAudioFileArray = tempArray
-            
-            DispatchQueue.main.async {
-                self.soundBoardView.reloadData()
-            }
-            
-    }
-        
-        
-        
+        getAudioFiles()
+    
 
         // Register cell classes
 //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -71,45 +53,48 @@ class SoundBoardVC: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+
         return 1
+        
     }
     
-    var globalAudioFileArray: [String] = []
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        
-        
-        print("There are \(globalAudioFileArray.count) files")
-        
-
 
         return globalAudioFileArray.count
+        
     }
-    
-    
+
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SoundBoardCellVC
-        
-//        let path = Bundle.main.path(forResource: "Cucked", ofType: ".mp3")!
-//        let url = URL(fileURLWithPath: path)
-
 
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.systemGray.cgColor
-
         cell.audioTitle.translatesAutoresizingMaskIntoConstraints = false
-        
-        var audiotitles: String?
-    
-        
         cell.audioTitle?.text = globalAudioFileArray[indexPath.row]
-    
 
         return cell
+    }
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        var soundClip: AVAudioPlayer?
+        
+        let path = Bundle.main.path(forResource: globalAudioFileArray[indexPath.row], ofType: ".mp3") ?? "STFU.mp3"
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            soundClip = try AVAudioPlayer(contentsOf: url)
+            soundClip?.play()
+            
+        }catch{
+            
+            print("Error: Audio File \(globalAudioFileArray[indexPath.row]) missing.")
+            
+        }
     }
 
     // MARK: UICollectionViewDelegate
@@ -191,10 +176,10 @@ class SoundBoardVC: UICollectionViewController {
                     audioFileArray.append(item.key)
                 }
                 
-                for audio in audioFileArray{
-                    
-                    self.dowloadAudioFileName(audioFiles: audio)
-                }
+//                for audio in audioFileArray{
+//
+//                    self.dowloadAudioFileName(audioFiles: audio)
+//                }
                 
                 completionHandler(audioFileArray)
                 
@@ -203,6 +188,28 @@ class SoundBoardVC: UICollectionViewController {
                 
             }
 
+    }
+    
+    func getAudioFiles(){
+        listFiles(){ (audioFileArray) in
+            
+            var tempArray: [String] = []
+            
+            for titles in audioFileArray {
+                
+                let editedTitles = titles.dropLast(4)
+                
+                tempArray.append(String(editedTitles))
+                
+            }
+            
+        self.globalAudioFileArray = tempArray
+            
+            DispatchQueue.main.async {
+                self.soundBoardView.reloadData()
+            }
+            
+    }
     }
     
 }
