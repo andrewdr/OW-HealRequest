@@ -26,6 +26,7 @@ class SoundBoardVC: UICollectionViewController {
         super.viewDidLoad()
         
         getAudioFiles()
+//        getAudioCloudURL()
     
 
         // Register cell classes
@@ -71,9 +72,23 @@ class SoundBoardVC: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SoundBoardCellVC
 
         cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.systemGray.cgColor
+        cell.layer.borderColor = CGColor(red:234/255, green: 178/255, blue: 22/255, alpha: 1 )
+        cell.layer.cornerRadius = 10
         cell.audioTitle.translatesAutoresizingMaskIntoConstraints = false
-        cell.audioTitle?.text = globalAudioFileArray[indexPath.row]
+        
+        var tempArray: [String] = []
+        
+//      removes file extention from title
+        for titles in globalAudioFileArray {
+        
+            let editedTitles = titles.dropLast(4)
+        
+            tempArray.append(String(editedTitles))
+        
+            }
+        
+        
+        cell.audioTitle?.text = tempArray[indexPath.row]
 
         return cell
     }
@@ -83,7 +98,10 @@ class SoundBoardVC: UICollectionViewController {
         
         var soundClip: AVAudioPlayer?
         
-        let path = Bundle.main.path(forResource: globalAudioFileArray[indexPath.row], ofType: ".mp3") ?? "STFU.mp3"
+        let path = Bundle.main.path(forResource: globalAudioFileArray[indexPath.row], ofType: ".mp3") ?? "SIMP.mp3"
+        
+        print("The path is \(path)")
+        
         let url = URL(fileURLWithPath: path)
         
         do {
@@ -192,24 +210,30 @@ class SoundBoardVC: UICollectionViewController {
     
     func getAudioFiles(){
         listFiles(){ (audioFileArray) in
-            
-            var tempArray: [String] = []
-            
-            for titles in audioFileArray {
-                
-                let editedTitles = titles.dropLast(4)
-                
-                tempArray.append(String(editedTitles))
-                
-            }
-            
-        self.globalAudioFileArray = tempArray
+        
+        self.globalAudioFileArray = audioFileArray
             
             DispatchQueue.main.async {
                 self.soundBoardView.reloadData()
             }
             
-    }
+        }
     }
     
+    func getAudioCloudURL(){
+        
+        resultSink = Amplify.Storage.getURL(key: "Cucked.mp3")
+        
+            .resultPublisher
+        
+            .sink {
+                if case let .failure(storageError) = $0 {
+                    print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
+                }
+            }
+            
+            receiveValue: { url in
+                print("Audio URL is \(url)")
+            }
+    }
 }
