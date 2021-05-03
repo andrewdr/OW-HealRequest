@@ -5,6 +5,9 @@ subscription OnCreateHealRequest {
     playerName
     selectedHero
     location
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -15,6 +18,9 @@ subscription OnUpdateHealRequest {
     playerName
     selectedHero
     location
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -25,6 +31,9 @@ subscription OnDeleteHealRequest {
     playerName
     selectedHero
     location
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -34,6 +43,9 @@ subscription OnCreateAudioInfo {
     id
     audioTitle
     audioFileName
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -43,6 +55,9 @@ subscription OnUpdateAudioInfo {
     id
     audioTitle
     audioFileName
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -52,6 +67,9 @@ subscription OnDeleteAudioInfo {
     id
     audioTitle
     audioFileName
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }

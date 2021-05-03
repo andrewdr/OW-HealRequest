@@ -1,10 +1,40 @@
 # this is an auto generated file. This will be overwritten
+query SyncHealRequests(
+  $filter: ModelHealRequestFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncHealRequests(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      playerName
+      selectedHero
+      location
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    nextToken
+    startedAt
+  }
+}
 query GetHealRequest($id: ID!) {
   getHealRequest(id: $id) {
     id
     playerName
     selectedHero
     location
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -20,10 +50,40 @@ query ListHealRequests(
       playerName
       selectedHero
       location
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
     nextToken
+    startedAt
+  }
+}
+query SyncAudioInfos(
+  $filter: ModelAudioInfoFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncAudioInfos(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      audioTitle
+      audioFileName
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    nextToken
+    startedAt
   }
 }
 query GetAudioInfo($id: ID!) {
@@ -31,6 +91,9 @@ query GetAudioInfo($id: ID!) {
     id
     audioTitle
     audioFileName
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -45,9 +108,13 @@ query ListAudioInfos(
       id
       audioTitle
       audioFileName
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
     nextToken
+    startedAt
   }
 }

@@ -96,24 +96,56 @@ class SoundBoardVC: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+//        var soundClip: AVAudioPlayer?
+        
+//        let path = Bundle.main.path(forResource: globalAudioFileArray[indexPath.row], ofType: ".mp3") ?? "SIMP.mp3"
+//
+//        print("The path is \(path)")
+//
+//        let url = URL(fileURLWithPath: path)
+//
+//        do {
+//            soundClip = try AVAudioPlayer(contentsOf: url)
+//            soundClip?.play()
+//
+//        }catch{
+//
+//            print("Error: Audio File \(globalAudioFileArray[indexPath.row]) missing.")
+//
+//        }
+        
+        playAudio()
+        
+    }
+    
+    func playAudio(){
+        
         var soundClip: AVAudioPlayer?
         
-        let path = Bundle.main.path(forResource: globalAudioFileArray[indexPath.row], ofType: ".mp3") ?? "SIMP.mp3"
-        
-        print("The path is \(path)")
-        
-        let url = URL(fileURLWithPath: path)
-        
-        do {
-            soundClip = try AVAudioPlayer(contentsOf: url)
-            soundClip?.play()
+        if let directory = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first{
             
-        }catch{
+            let path = NSURL(fileURLWithPath: directory).appendingPathComponent("Dump Trucks.mp3")
             
-            print("Error: Audio File \(globalAudioFileArray[indexPath.row]) missing.")
+            print("The path is \(String(describing: path))")
+            
+            let url = path
+            
+            do {
+                soundClip = try AVAudioPlayer(contentsOf: url!)
+                soundClip?.play()
+                
+            }catch{
+                
+                print("Error: Audio File missing.")
+                
+            }
+            
             
         }
+        
+        
     }
+    
 
     // MARK: UICollectionViewDelegate
 
@@ -194,10 +226,9 @@ class SoundBoardVC: UICollectionViewController {
                     audioFileArray.append(item.key)
                 }
                 
-//                for audio in audioFileArray{
-//
-//                    self.dowloadAudioFileName(audioFiles: audio)
-//                }
+                self.saveAudioToDataStore(audio: audioFileArray)
+                
+
                 
                 completionHandler(audioFileArray)
                 
@@ -236,4 +267,22 @@ class SoundBoardVC: UICollectionViewController {
                 print("Audio URL is \(url)")
             }
     }
+    
+    func saveAudioToDataStore(audio:Array<String>){
+        
+        let audioData = AudioInfo(audioTitle: String(audio[0]), audioFileName: String(audio[0]))
+        
+        Amplify.DataStore.save(audioData){ result in
+            switch(result) {
+            case .success(let savedRequest):
+                print("Saved item: \(savedRequest)")
+            case .failure(let error):
+                print("Could not save item to datastore: \(error)")
+
+            }
+
+        }
+    }
+    
+    
 }

@@ -8,6 +8,9 @@ mutation CreateHealRequest(
     playerName
     selectedHero
     location
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -21,6 +24,9 @@ mutation UpdateHealRequest(
     playerName
     selectedHero
     location
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -34,6 +40,9 @@ mutation DeleteHealRequest(
     playerName
     selectedHero
     location
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -46,6 +55,9 @@ mutation CreateAudioInfo(
     id
     audioTitle
     audioFileName
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -58,6 +70,9 @@ mutation UpdateAudioInfo(
     id
     audioTitle
     audioFileName
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -70,6 +85,9 @@ mutation DeleteAudioInfo(
     id
     audioTitle
     audioFileName
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }

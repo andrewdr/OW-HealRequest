@@ -5,8 +5,8 @@ import AWSAppSync
 public struct CreateHealRequestInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(id: GraphQLID? = nil, playerName: String, selectedHero: String, location: String) {
-    graphQLMap = ["id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location]
+  public init(id: GraphQLID? = nil, playerName: String, selectedHero: String, location: String, version: Int? = nil) {
+    graphQLMap = ["id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "_version": version]
   }
 
   public var id: GraphQLID? {
@@ -42,6 +42,15 @@ public struct CreateHealRequestInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "location")
+    }
+  }
+
+  public var version: Int? {
+    get {
+      return graphQLMap["_version"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "_version")
     }
   }
 }
@@ -372,8 +381,8 @@ public struct ModelSizeInput: GraphQLMapConvertible {
 public struct UpdateHealRequestInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(id: GraphQLID, playerName: String? = nil, selectedHero: String? = nil, location: String? = nil) {
-    graphQLMap = ["id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location]
+  public init(id: GraphQLID, playerName: String? = nil, selectedHero: String? = nil, location: String? = nil, version: Int? = nil) {
+    graphQLMap = ["id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "_version": version]
   }
 
   public var id: GraphQLID {
@@ -411,13 +420,22 @@ public struct UpdateHealRequestInput: GraphQLMapConvertible {
       graphQLMap.updateValue(newValue, forKey: "location")
     }
   }
+
+  public var version: Int? {
+    get {
+      return graphQLMap["_version"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "_version")
+    }
+  }
 }
 
 public struct DeleteHealRequestInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(id: GraphQLID? = nil) {
-    graphQLMap = ["id": id]
+  public init(id: GraphQLID? = nil, version: Int? = nil) {
+    graphQLMap = ["id": id, "_version": version]
   }
 
   public var id: GraphQLID? {
@@ -428,13 +446,22 @@ public struct DeleteHealRequestInput: GraphQLMapConvertible {
       graphQLMap.updateValue(newValue, forKey: "id")
     }
   }
+
+  public var version: Int? {
+    get {
+      return graphQLMap["_version"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "_version")
+    }
+  }
 }
 
 public struct CreateAudioInfoInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(id: GraphQLID? = nil, audioTitle: String, audioFileName: String) {
-    graphQLMap = ["id": id, "audioTitle": audioTitle, "audioFileName": audioFileName]
+  public init(id: GraphQLID? = nil, audioTitle: String, audioFileName: String, version: Int? = nil) {
+    graphQLMap = ["id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "_version": version]
   }
 
   public var id: GraphQLID? {
@@ -461,6 +488,15 @@ public struct CreateAudioInfoInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "audioFileName")
+    }
+  }
+
+  public var version: Int? {
+    get {
+      return graphQLMap["_version"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "_version")
     }
   }
 }
@@ -521,8 +557,8 @@ public struct ModelAudioInfoConditionInput: GraphQLMapConvertible {
 public struct UpdateAudioInfoInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(audioTitle: String? = nil, audioFileName: String? = nil) {
-    graphQLMap = ["audioTitle": audioTitle, "audioFileName": audioFileName]
+  public init(audioTitle: String? = nil, audioFileName: String? = nil, version: Int? = nil) {
+    graphQLMap = ["audioTitle": audioTitle, "audioFileName": audioFileName, "_version": version]
   }
 
   public var audioTitle: String? {
@@ -542,13 +578,22 @@ public struct UpdateAudioInfoInput: GraphQLMapConvertible {
       graphQLMap.updateValue(newValue, forKey: "audioFileName")
     }
   }
+
+  public var version: Int? {
+    get {
+      return graphQLMap["_version"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "_version")
+    }
+  }
 }
 
 public struct DeleteAudioInfoInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(id: GraphQLID? = nil) {
-    graphQLMap = ["id": id]
+  public init(id: GraphQLID? = nil, version: Int? = nil) {
+    graphQLMap = ["id": id, "_version": version]
   }
 
   public var id: GraphQLID? {
@@ -557,6 +602,15 @@ public struct DeleteAudioInfoInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  public var version: Int? {
+    get {
+      return graphQLMap["_version"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "_version")
     }
   }
 }
@@ -812,7 +866,7 @@ public struct ModelAudioInfoFilterInput: GraphQLMapConvertible {
 
 public final class CreateHealRequestMutation: GraphQLMutation {
   public static let operationString =
-    "mutation CreateHealRequest($input: CreateHealRequestInput!, $condition: ModelHealRequestConditionInput) {\n  createHealRequest(input: $input, condition: $condition) {\n    __typename\n    id\n    playerName\n    selectedHero\n    location\n    createdAt\n    updatedAt\n  }\n}"
+    "mutation CreateHealRequest($input: CreateHealRequestInput!, $condition: ModelHealRequestConditionInput) {\n  createHealRequest(input: $input, condition: $condition) {\n    __typename\n    id\n    playerName\n    selectedHero\n    location\n    _version\n    _deleted\n    _lastChangedAt\n    createdAt\n    updatedAt\n  }\n}"
 
   public var input: CreateHealRequestInput
   public var condition: ModelHealRequestConditionInput?
@@ -861,6 +915,9 @@ public final class CreateHealRequestMutation: GraphQLMutation {
         GraphQLField("playerName", type: .nonNull(.scalar(String.self))),
         GraphQLField("selectedHero", type: .nonNull(.scalar(String.self))),
         GraphQLField("location", type: .nonNull(.scalar(String.self))),
+        GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("_deleted", type: .scalar(Bool.self)),
+        GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -871,8 +928,8 @@ public final class CreateHealRequestMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -920,6 +977,33 @@ public final class CreateHealRequestMutation: GraphQLMutation {
         }
       }
 
+      public var version: Int {
+        get {
+          return snapshot["_version"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_version")
+        }
+      }
+
+      public var deleted: Bool? {
+        get {
+          return snapshot["_deleted"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_deleted")
+        }
+      }
+
+      public var lastChangedAt: Int {
+        get {
+          return snapshot["_lastChangedAt"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -943,7 +1027,7 @@ public final class CreateHealRequestMutation: GraphQLMutation {
 
 public final class UpdateHealRequestMutation: GraphQLMutation {
   public static let operationString =
-    "mutation UpdateHealRequest($input: UpdateHealRequestInput!, $condition: ModelHealRequestConditionInput) {\n  updateHealRequest(input: $input, condition: $condition) {\n    __typename\n    id\n    playerName\n    selectedHero\n    location\n    createdAt\n    updatedAt\n  }\n}"
+    "mutation UpdateHealRequest($input: UpdateHealRequestInput!, $condition: ModelHealRequestConditionInput) {\n  updateHealRequest(input: $input, condition: $condition) {\n    __typename\n    id\n    playerName\n    selectedHero\n    location\n    _version\n    _deleted\n    _lastChangedAt\n    createdAt\n    updatedAt\n  }\n}"
 
   public var input: UpdateHealRequestInput
   public var condition: ModelHealRequestConditionInput?
@@ -992,6 +1076,9 @@ public final class UpdateHealRequestMutation: GraphQLMutation {
         GraphQLField("playerName", type: .nonNull(.scalar(String.self))),
         GraphQLField("selectedHero", type: .nonNull(.scalar(String.self))),
         GraphQLField("location", type: .nonNull(.scalar(String.self))),
+        GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("_deleted", type: .scalar(Bool.self)),
+        GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -1002,8 +1089,8 @@ public final class UpdateHealRequestMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -1051,6 +1138,33 @@ public final class UpdateHealRequestMutation: GraphQLMutation {
         }
       }
 
+      public var version: Int {
+        get {
+          return snapshot["_version"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_version")
+        }
+      }
+
+      public var deleted: Bool? {
+        get {
+          return snapshot["_deleted"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_deleted")
+        }
+      }
+
+      public var lastChangedAt: Int {
+        get {
+          return snapshot["_lastChangedAt"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -1074,7 +1188,7 @@ public final class UpdateHealRequestMutation: GraphQLMutation {
 
 public final class DeleteHealRequestMutation: GraphQLMutation {
   public static let operationString =
-    "mutation DeleteHealRequest($input: DeleteHealRequestInput!, $condition: ModelHealRequestConditionInput) {\n  deleteHealRequest(input: $input, condition: $condition) {\n    __typename\n    id\n    playerName\n    selectedHero\n    location\n    createdAt\n    updatedAt\n  }\n}"
+    "mutation DeleteHealRequest($input: DeleteHealRequestInput!, $condition: ModelHealRequestConditionInput) {\n  deleteHealRequest(input: $input, condition: $condition) {\n    __typename\n    id\n    playerName\n    selectedHero\n    location\n    _version\n    _deleted\n    _lastChangedAt\n    createdAt\n    updatedAt\n  }\n}"
 
   public var input: DeleteHealRequestInput
   public var condition: ModelHealRequestConditionInput?
@@ -1123,6 +1237,9 @@ public final class DeleteHealRequestMutation: GraphQLMutation {
         GraphQLField("playerName", type: .nonNull(.scalar(String.self))),
         GraphQLField("selectedHero", type: .nonNull(.scalar(String.self))),
         GraphQLField("location", type: .nonNull(.scalar(String.self))),
+        GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("_deleted", type: .scalar(Bool.self)),
+        GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -1133,8 +1250,8 @@ public final class DeleteHealRequestMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -1182,6 +1299,33 @@ public final class DeleteHealRequestMutation: GraphQLMutation {
         }
       }
 
+      public var version: Int {
+        get {
+          return snapshot["_version"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_version")
+        }
+      }
+
+      public var deleted: Bool? {
+        get {
+          return snapshot["_deleted"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_deleted")
+        }
+      }
+
+      public var lastChangedAt: Int {
+        get {
+          return snapshot["_lastChangedAt"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -1205,7 +1349,7 @@ public final class DeleteHealRequestMutation: GraphQLMutation {
 
 public final class CreateAudioInfoMutation: GraphQLMutation {
   public static let operationString =
-    "mutation CreateAudioInfo($input: CreateAudioInfoInput!, $condition: ModelAudioInfoConditionInput) {\n  createAudioInfo(input: $input, condition: $condition) {\n    __typename\n    id\n    audioTitle\n    audioFileName\n    createdAt\n    updatedAt\n  }\n}"
+    "mutation CreateAudioInfo($input: CreateAudioInfoInput!, $condition: ModelAudioInfoConditionInput) {\n  createAudioInfo(input: $input, condition: $condition) {\n    __typename\n    id\n    audioTitle\n    audioFileName\n    _version\n    _deleted\n    _lastChangedAt\n    createdAt\n    updatedAt\n  }\n}"
 
   public var input: CreateAudioInfoInput
   public var condition: ModelAudioInfoConditionInput?
@@ -1253,6 +1397,9 @@ public final class CreateAudioInfoMutation: GraphQLMutation {
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
         GraphQLField("audioTitle", type: .nonNull(.scalar(String.self))),
         GraphQLField("audioFileName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("_deleted", type: .scalar(Bool.self)),
+        GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -1263,8 +1410,8 @@ public final class CreateAudioInfoMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, audioTitle: String, audioFileName: String, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, audioTitle: String, audioFileName: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -1303,6 +1450,33 @@ public final class CreateAudioInfoMutation: GraphQLMutation {
         }
       }
 
+      public var version: Int {
+        get {
+          return snapshot["_version"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_version")
+        }
+      }
+
+      public var deleted: Bool? {
+        get {
+          return snapshot["_deleted"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_deleted")
+        }
+      }
+
+      public var lastChangedAt: Int {
+        get {
+          return snapshot["_lastChangedAt"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -1326,7 +1500,7 @@ public final class CreateAudioInfoMutation: GraphQLMutation {
 
 public final class UpdateAudioInfoMutation: GraphQLMutation {
   public static let operationString =
-    "mutation UpdateAudioInfo($input: UpdateAudioInfoInput!, $condition: ModelAudioInfoConditionInput) {\n  updateAudioInfo(input: $input, condition: $condition) {\n    __typename\n    id\n    audioTitle\n    audioFileName\n    createdAt\n    updatedAt\n  }\n}"
+    "mutation UpdateAudioInfo($input: UpdateAudioInfoInput!, $condition: ModelAudioInfoConditionInput) {\n  updateAudioInfo(input: $input, condition: $condition) {\n    __typename\n    id\n    audioTitle\n    audioFileName\n    _version\n    _deleted\n    _lastChangedAt\n    createdAt\n    updatedAt\n  }\n}"
 
   public var input: UpdateAudioInfoInput
   public var condition: ModelAudioInfoConditionInput?
@@ -1374,6 +1548,9 @@ public final class UpdateAudioInfoMutation: GraphQLMutation {
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
         GraphQLField("audioTitle", type: .nonNull(.scalar(String.self))),
         GraphQLField("audioFileName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("_deleted", type: .scalar(Bool.self)),
+        GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -1384,8 +1561,8 @@ public final class UpdateAudioInfoMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, audioTitle: String, audioFileName: String, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, audioTitle: String, audioFileName: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -1424,6 +1601,33 @@ public final class UpdateAudioInfoMutation: GraphQLMutation {
         }
       }
 
+      public var version: Int {
+        get {
+          return snapshot["_version"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_version")
+        }
+      }
+
+      public var deleted: Bool? {
+        get {
+          return snapshot["_deleted"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_deleted")
+        }
+      }
+
+      public var lastChangedAt: Int {
+        get {
+          return snapshot["_lastChangedAt"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -1447,7 +1651,7 @@ public final class UpdateAudioInfoMutation: GraphQLMutation {
 
 public final class DeleteAudioInfoMutation: GraphQLMutation {
   public static let operationString =
-    "mutation DeleteAudioInfo($input: DeleteAudioInfoInput!, $condition: ModelAudioInfoConditionInput) {\n  deleteAudioInfo(input: $input, condition: $condition) {\n    __typename\n    id\n    audioTitle\n    audioFileName\n    createdAt\n    updatedAt\n  }\n}"
+    "mutation DeleteAudioInfo($input: DeleteAudioInfoInput!, $condition: ModelAudioInfoConditionInput) {\n  deleteAudioInfo(input: $input, condition: $condition) {\n    __typename\n    id\n    audioTitle\n    audioFileName\n    _version\n    _deleted\n    _lastChangedAt\n    createdAt\n    updatedAt\n  }\n}"
 
   public var input: DeleteAudioInfoInput
   public var condition: ModelAudioInfoConditionInput?
@@ -1495,6 +1699,9 @@ public final class DeleteAudioInfoMutation: GraphQLMutation {
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
         GraphQLField("audioTitle", type: .nonNull(.scalar(String.self))),
         GraphQLField("audioFileName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("_deleted", type: .scalar(Bool.self)),
+        GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -1505,8 +1712,8 @@ public final class DeleteAudioInfoMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, audioTitle: String, audioFileName: String, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, audioTitle: String, audioFileName: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -1545,6 +1752,33 @@ public final class DeleteAudioInfoMutation: GraphQLMutation {
         }
       }
 
+      public var version: Int {
+        get {
+          return snapshot["_version"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_version")
+        }
+      }
+
+      public var deleted: Bool? {
+        get {
+          return snapshot["_deleted"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_deleted")
+        }
+      }
+
+      public var lastChangedAt: Int {
+        get {
+          return snapshot["_lastChangedAt"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -1566,9 +1800,231 @@ public final class DeleteAudioInfoMutation: GraphQLMutation {
   }
 }
 
+public final class SyncHealRequestsQuery: GraphQLQuery {
+  public static let operationString =
+    "query SyncHealRequests($filter: ModelHealRequestFilterInput, $limit: Int, $nextToken: String, $lastSync: AWSTimestamp) {\n  syncHealRequests(filter: $filter, limit: $limit, nextToken: $nextToken, lastSync: $lastSync) {\n    __typename\n    items {\n      __typename\n      id\n      playerName\n      selectedHero\n      location\n      _version\n      _deleted\n      _lastChangedAt\n      createdAt\n      updatedAt\n    }\n    nextToken\n    startedAt\n  }\n}"
+
+  public var filter: ModelHealRequestFilterInput?
+  public var limit: Int?
+  public var nextToken: String?
+  public var lastSync: Int?
+
+  public init(filter: ModelHealRequestFilterInput? = nil, limit: Int? = nil, nextToken: String? = nil, lastSync: Int? = nil) {
+    self.filter = filter
+    self.limit = limit
+    self.nextToken = nextToken
+    self.lastSync = lastSync
+  }
+
+  public var variables: GraphQLMap? {
+    return ["filter": filter, "limit": limit, "nextToken": nextToken, "lastSync": lastSync]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Query"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("syncHealRequests", arguments: ["filter": GraphQLVariable("filter"), "limit": GraphQLVariable("limit"), "nextToken": GraphQLVariable("nextToken"), "lastSync": GraphQLVariable("lastSync")], type: .object(SyncHealRequest.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(syncHealRequests: SyncHealRequest? = nil) {
+      self.init(snapshot: ["__typename": "Query", "syncHealRequests": syncHealRequests.flatMap { $0.snapshot }])
+    }
+
+    public var syncHealRequests: SyncHealRequest? {
+      get {
+        return (snapshot["syncHealRequests"] as? Snapshot).flatMap { SyncHealRequest(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "syncHealRequests")
+      }
+    }
+
+    public struct SyncHealRequest: GraphQLSelectionSet {
+      public static let possibleTypes = ["ModelHealRequestConnection"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("items", type: .list(.object(Item.selections))),
+        GraphQLField("nextToken", type: .scalar(String.self)),
+        GraphQLField("startedAt", type: .scalar(Int.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(items: [Item?]? = nil, nextToken: String? = nil, startedAt: Int? = nil) {
+        self.init(snapshot: ["__typename": "ModelHealRequestConnection", "items": items.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, "nextToken": nextToken, "startedAt": startedAt])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var items: [Item?]? {
+        get {
+          return (snapshot["items"] as? [Snapshot?]).flatMap { $0.map { $0.flatMap { Item(snapshot: $0) } } }
+        }
+        set {
+          snapshot.updateValue(newValue.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, forKey: "items")
+        }
+      }
+
+      public var nextToken: String? {
+        get {
+          return snapshot["nextToken"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "nextToken")
+        }
+      }
+
+      public var startedAt: Int? {
+        get {
+          return snapshot["startedAt"] as? Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "startedAt")
+        }
+      }
+
+      public struct Item: GraphQLSelectionSet {
+        public static let possibleTypes = ["HealRequest"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+          GraphQLField("playerName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("selectedHero", type: .nonNull(.scalar(String.self))),
+          GraphQLField("location", type: .nonNull(.scalar(String.self))),
+          GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("_deleted", type: .scalar(Bool.self)),
+          GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
+          GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
+        ]
+
+        public var snapshot: Snapshot
+
+        public init(snapshot: Snapshot) {
+          self.snapshot = snapshot
+        }
+
+        public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+          self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
+        }
+
+        public var __typename: String {
+          get {
+            return snapshot["__typename"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID {
+          get {
+            return snapshot["id"]! as! GraphQLID
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var playerName: String {
+          get {
+            return snapshot["playerName"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "playerName")
+          }
+        }
+
+        public var selectedHero: String {
+          get {
+            return snapshot["selectedHero"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "selectedHero")
+          }
+        }
+
+        public var location: String {
+          get {
+            return snapshot["location"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "location")
+          }
+        }
+
+        public var version: Int {
+          get {
+            return snapshot["_version"]! as! Int
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "_version")
+          }
+        }
+
+        public var deleted: Bool? {
+          get {
+            return snapshot["_deleted"] as? Bool
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "_deleted")
+          }
+        }
+
+        public var lastChangedAt: Int {
+          get {
+            return snapshot["_lastChangedAt"]! as! Int
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+          }
+        }
+
+        public var createdAt: String {
+          get {
+            return snapshot["createdAt"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "createdAt")
+          }
+        }
+
+        public var updatedAt: String {
+          get {
+            return snapshot["updatedAt"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "updatedAt")
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class GetHealRequestQuery: GraphQLQuery {
   public static let operationString =
-    "query GetHealRequest($id: ID!) {\n  getHealRequest(id: $id) {\n    __typename\n    id\n    playerName\n    selectedHero\n    location\n    createdAt\n    updatedAt\n  }\n}"
+    "query GetHealRequest($id: ID!) {\n  getHealRequest(id: $id) {\n    __typename\n    id\n    playerName\n    selectedHero\n    location\n    _version\n    _deleted\n    _lastChangedAt\n    createdAt\n    updatedAt\n  }\n}"
 
   public var id: GraphQLID
 
@@ -1615,6 +2071,9 @@ public final class GetHealRequestQuery: GraphQLQuery {
         GraphQLField("playerName", type: .nonNull(.scalar(String.self))),
         GraphQLField("selectedHero", type: .nonNull(.scalar(String.self))),
         GraphQLField("location", type: .nonNull(.scalar(String.self))),
+        GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("_deleted", type: .scalar(Bool.self)),
+        GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -1625,8 +2084,8 @@ public final class GetHealRequestQuery: GraphQLQuery {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -1674,6 +2133,33 @@ public final class GetHealRequestQuery: GraphQLQuery {
         }
       }
 
+      public var version: Int {
+        get {
+          return snapshot["_version"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_version")
+        }
+      }
+
+      public var deleted: Bool? {
+        get {
+          return snapshot["_deleted"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_deleted")
+        }
+      }
+
+      public var lastChangedAt: Int {
+        get {
+          return snapshot["_lastChangedAt"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -1697,7 +2183,7 @@ public final class GetHealRequestQuery: GraphQLQuery {
 
 public final class ListHealRequestsQuery: GraphQLQuery {
   public static let operationString =
-    "query ListHealRequests($filter: ModelHealRequestFilterInput, $limit: Int, $nextToken: String) {\n  listHealRequests(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      playerName\n      selectedHero\n      location\n      createdAt\n      updatedAt\n    }\n    nextToken\n  }\n}"
+    "query ListHealRequests($filter: ModelHealRequestFilterInput, $limit: Int, $nextToken: String) {\n  listHealRequests(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      playerName\n      selectedHero\n      location\n      _version\n      _deleted\n      _lastChangedAt\n      createdAt\n      updatedAt\n    }\n    nextToken\n    startedAt\n  }\n}"
 
   public var filter: ModelHealRequestFilterInput?
   public var limit: Int?
@@ -1746,6 +2232,7 @@ public final class ListHealRequestsQuery: GraphQLQuery {
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("items", type: .list(.object(Item.selections))),
         GraphQLField("nextToken", type: .scalar(String.self)),
+        GraphQLField("startedAt", type: .scalar(Int.self)),
       ]
 
       public var snapshot: Snapshot
@@ -1754,8 +2241,8 @@ public final class ListHealRequestsQuery: GraphQLQuery {
         self.snapshot = snapshot
       }
 
-      public init(items: [Item?]? = nil, nextToken: String? = nil) {
-        self.init(snapshot: ["__typename": "ModelHealRequestConnection", "items": items.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, "nextToken": nextToken])
+      public init(items: [Item?]? = nil, nextToken: String? = nil, startedAt: Int? = nil) {
+        self.init(snapshot: ["__typename": "ModelHealRequestConnection", "items": items.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, "nextToken": nextToken, "startedAt": startedAt])
       }
 
       public var __typename: String {
@@ -1785,6 +2272,15 @@ public final class ListHealRequestsQuery: GraphQLQuery {
         }
       }
 
+      public var startedAt: Int? {
+        get {
+          return snapshot["startedAt"] as? Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "startedAt")
+        }
+      }
+
       public struct Item: GraphQLSelectionSet {
         public static let possibleTypes = ["HealRequest"]
 
@@ -1794,6 +2290,9 @@ public final class ListHealRequestsQuery: GraphQLQuery {
           GraphQLField("playerName", type: .nonNull(.scalar(String.self))),
           GraphQLField("selectedHero", type: .nonNull(.scalar(String.self))),
           GraphQLField("location", type: .nonNull(.scalar(String.self))),
+          GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("_deleted", type: .scalar(Bool.self)),
+          GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
           GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
           GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
         ]
@@ -1804,8 +2303,8 @@ public final class ListHealRequestsQuery: GraphQLQuery {
           self.snapshot = snapshot
         }
 
-        public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, createdAt: String, updatedAt: String) {
-          self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "createdAt": createdAt, "updatedAt": updatedAt])
+        public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+          self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
         }
 
         public var __typename: String {
@@ -1853,6 +2352,245 @@ public final class ListHealRequestsQuery: GraphQLQuery {
           }
         }
 
+        public var version: Int {
+          get {
+            return snapshot["_version"]! as! Int
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "_version")
+          }
+        }
+
+        public var deleted: Bool? {
+          get {
+            return snapshot["_deleted"] as? Bool
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "_deleted")
+          }
+        }
+
+        public var lastChangedAt: Int {
+          get {
+            return snapshot["_lastChangedAt"]! as! Int
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+          }
+        }
+
+        public var createdAt: String {
+          get {
+            return snapshot["createdAt"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "createdAt")
+          }
+        }
+
+        public var updatedAt: String {
+          get {
+            return snapshot["updatedAt"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "updatedAt")
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class SyncAudioInfosQuery: GraphQLQuery {
+  public static let operationString =
+    "query SyncAudioInfos($filter: ModelAudioInfoFilterInput, $limit: Int, $nextToken: String, $lastSync: AWSTimestamp) {\n  syncAudioInfos(filter: $filter, limit: $limit, nextToken: $nextToken, lastSync: $lastSync) {\n    __typename\n    items {\n      __typename\n      id\n      audioTitle\n      audioFileName\n      _version\n      _deleted\n      _lastChangedAt\n      createdAt\n      updatedAt\n    }\n    nextToken\n    startedAt\n  }\n}"
+
+  public var filter: ModelAudioInfoFilterInput?
+  public var limit: Int?
+  public var nextToken: String?
+  public var lastSync: Int?
+
+  public init(filter: ModelAudioInfoFilterInput? = nil, limit: Int? = nil, nextToken: String? = nil, lastSync: Int? = nil) {
+    self.filter = filter
+    self.limit = limit
+    self.nextToken = nextToken
+    self.lastSync = lastSync
+  }
+
+  public var variables: GraphQLMap? {
+    return ["filter": filter, "limit": limit, "nextToken": nextToken, "lastSync": lastSync]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Query"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("syncAudioInfos", arguments: ["filter": GraphQLVariable("filter"), "limit": GraphQLVariable("limit"), "nextToken": GraphQLVariable("nextToken"), "lastSync": GraphQLVariable("lastSync")], type: .object(SyncAudioInfo.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(syncAudioInfos: SyncAudioInfo? = nil) {
+      self.init(snapshot: ["__typename": "Query", "syncAudioInfos": syncAudioInfos.flatMap { $0.snapshot }])
+    }
+
+    public var syncAudioInfos: SyncAudioInfo? {
+      get {
+        return (snapshot["syncAudioInfos"] as? Snapshot).flatMap { SyncAudioInfo(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "syncAudioInfos")
+      }
+    }
+
+    public struct SyncAudioInfo: GraphQLSelectionSet {
+      public static let possibleTypes = ["ModelAudioInfoConnection"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("items", type: .list(.object(Item.selections))),
+        GraphQLField("nextToken", type: .scalar(String.self)),
+        GraphQLField("startedAt", type: .scalar(Int.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(items: [Item?]? = nil, nextToken: String? = nil, startedAt: Int? = nil) {
+        self.init(snapshot: ["__typename": "ModelAudioInfoConnection", "items": items.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, "nextToken": nextToken, "startedAt": startedAt])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var items: [Item?]? {
+        get {
+          return (snapshot["items"] as? [Snapshot?]).flatMap { $0.map { $0.flatMap { Item(snapshot: $0) } } }
+        }
+        set {
+          snapshot.updateValue(newValue.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, forKey: "items")
+        }
+      }
+
+      public var nextToken: String? {
+        get {
+          return snapshot["nextToken"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "nextToken")
+        }
+      }
+
+      public var startedAt: Int? {
+        get {
+          return snapshot["startedAt"] as? Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "startedAt")
+        }
+      }
+
+      public struct Item: GraphQLSelectionSet {
+        public static let possibleTypes = ["AudioInfo"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+          GraphQLField("audioTitle", type: .nonNull(.scalar(String.self))),
+          GraphQLField("audioFileName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("_deleted", type: .scalar(Bool.self)),
+          GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
+          GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
+        ]
+
+        public var snapshot: Snapshot
+
+        public init(snapshot: Snapshot) {
+          self.snapshot = snapshot
+        }
+
+        public init(id: GraphQLID, audioTitle: String, audioFileName: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+          self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
+        }
+
+        public var __typename: String {
+          get {
+            return snapshot["__typename"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID {
+          get {
+            return snapshot["id"]! as! GraphQLID
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var audioTitle: String {
+          get {
+            return snapshot["audioTitle"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "audioTitle")
+          }
+        }
+
+        public var audioFileName: String {
+          get {
+            return snapshot["audioFileName"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "audioFileName")
+          }
+        }
+
+        public var version: Int {
+          get {
+            return snapshot["_version"]! as! Int
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "_version")
+          }
+        }
+
+        public var deleted: Bool? {
+          get {
+            return snapshot["_deleted"] as? Bool
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "_deleted")
+          }
+        }
+
+        public var lastChangedAt: Int {
+          get {
+            return snapshot["_lastChangedAt"]! as! Int
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+          }
+        }
+
         public var createdAt: String {
           get {
             return snapshot["createdAt"]! as! String
@@ -1877,7 +2615,7 @@ public final class ListHealRequestsQuery: GraphQLQuery {
 
 public final class GetAudioInfoQuery: GraphQLQuery {
   public static let operationString =
-    "query GetAudioInfo($id: ID!) {\n  getAudioInfo(id: $id) {\n    __typename\n    id\n    audioTitle\n    audioFileName\n    createdAt\n    updatedAt\n  }\n}"
+    "query GetAudioInfo($id: ID!) {\n  getAudioInfo(id: $id) {\n    __typename\n    id\n    audioTitle\n    audioFileName\n    _version\n    _deleted\n    _lastChangedAt\n    createdAt\n    updatedAt\n  }\n}"
 
   public var id: GraphQLID
 
@@ -1923,6 +2661,9 @@ public final class GetAudioInfoQuery: GraphQLQuery {
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
         GraphQLField("audioTitle", type: .nonNull(.scalar(String.self))),
         GraphQLField("audioFileName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("_deleted", type: .scalar(Bool.self)),
+        GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -1933,8 +2674,8 @@ public final class GetAudioInfoQuery: GraphQLQuery {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, audioTitle: String, audioFileName: String, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, audioTitle: String, audioFileName: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -1973,6 +2714,33 @@ public final class GetAudioInfoQuery: GraphQLQuery {
         }
       }
 
+      public var version: Int {
+        get {
+          return snapshot["_version"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_version")
+        }
+      }
+
+      public var deleted: Bool? {
+        get {
+          return snapshot["_deleted"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_deleted")
+        }
+      }
+
+      public var lastChangedAt: Int {
+        get {
+          return snapshot["_lastChangedAt"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -1996,7 +2764,7 @@ public final class GetAudioInfoQuery: GraphQLQuery {
 
 public final class ListAudioInfosQuery: GraphQLQuery {
   public static let operationString =
-    "query ListAudioInfos($filter: ModelAudioInfoFilterInput, $limit: Int, $nextToken: String) {\n  listAudioInfos(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      audioTitle\n      audioFileName\n      createdAt\n      updatedAt\n    }\n    nextToken\n  }\n}"
+    "query ListAudioInfos($filter: ModelAudioInfoFilterInput, $limit: Int, $nextToken: String) {\n  listAudioInfos(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      audioTitle\n      audioFileName\n      _version\n      _deleted\n      _lastChangedAt\n      createdAt\n      updatedAt\n    }\n    nextToken\n    startedAt\n  }\n}"
 
   public var filter: ModelAudioInfoFilterInput?
   public var limit: Int?
@@ -2045,6 +2813,7 @@ public final class ListAudioInfosQuery: GraphQLQuery {
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("items", type: .list(.object(Item.selections))),
         GraphQLField("nextToken", type: .scalar(String.self)),
+        GraphQLField("startedAt", type: .scalar(Int.self)),
       ]
 
       public var snapshot: Snapshot
@@ -2053,8 +2822,8 @@ public final class ListAudioInfosQuery: GraphQLQuery {
         self.snapshot = snapshot
       }
 
-      public init(items: [Item?]? = nil, nextToken: String? = nil) {
-        self.init(snapshot: ["__typename": "ModelAudioInfoConnection", "items": items.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, "nextToken": nextToken])
+      public init(items: [Item?]? = nil, nextToken: String? = nil, startedAt: Int? = nil) {
+        self.init(snapshot: ["__typename": "ModelAudioInfoConnection", "items": items.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, "nextToken": nextToken, "startedAt": startedAt])
       }
 
       public var __typename: String {
@@ -2084,6 +2853,15 @@ public final class ListAudioInfosQuery: GraphQLQuery {
         }
       }
 
+      public var startedAt: Int? {
+        get {
+          return snapshot["startedAt"] as? Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "startedAt")
+        }
+      }
+
       public struct Item: GraphQLSelectionSet {
         public static let possibleTypes = ["AudioInfo"]
 
@@ -2092,6 +2870,9 @@ public final class ListAudioInfosQuery: GraphQLQuery {
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
           GraphQLField("audioTitle", type: .nonNull(.scalar(String.self))),
           GraphQLField("audioFileName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("_deleted", type: .scalar(Bool.self)),
+          GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
           GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
           GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
         ]
@@ -2102,8 +2883,8 @@ public final class ListAudioInfosQuery: GraphQLQuery {
           self.snapshot = snapshot
         }
 
-        public init(id: GraphQLID, audioTitle: String, audioFileName: String, createdAt: String, updatedAt: String) {
-          self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "createdAt": createdAt, "updatedAt": updatedAt])
+        public init(id: GraphQLID, audioTitle: String, audioFileName: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+          self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
         }
 
         public var __typename: String {
@@ -2142,6 +2923,33 @@ public final class ListAudioInfosQuery: GraphQLQuery {
           }
         }
 
+        public var version: Int {
+          get {
+            return snapshot["_version"]! as! Int
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "_version")
+          }
+        }
+
+        public var deleted: Bool? {
+          get {
+            return snapshot["_deleted"] as? Bool
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "_deleted")
+          }
+        }
+
+        public var lastChangedAt: Int {
+          get {
+            return snapshot["_lastChangedAt"]! as! Int
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+          }
+        }
+
         public var createdAt: String {
           get {
             return snapshot["createdAt"]! as! String
@@ -2166,7 +2974,7 @@ public final class ListAudioInfosQuery: GraphQLQuery {
 
 public final class OnCreateHealRequestSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnCreateHealRequest {\n  onCreateHealRequest {\n    __typename\n    id\n    playerName\n    selectedHero\n    location\n    createdAt\n    updatedAt\n  }\n}"
+    "subscription OnCreateHealRequest {\n  onCreateHealRequest {\n    __typename\n    id\n    playerName\n    selectedHero\n    location\n    _version\n    _deleted\n    _lastChangedAt\n    createdAt\n    updatedAt\n  }\n}"
 
   public init() {
   }
@@ -2206,6 +3014,9 @@ public final class OnCreateHealRequestSubscription: GraphQLSubscription {
         GraphQLField("playerName", type: .nonNull(.scalar(String.self))),
         GraphQLField("selectedHero", type: .nonNull(.scalar(String.self))),
         GraphQLField("location", type: .nonNull(.scalar(String.self))),
+        GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("_deleted", type: .scalar(Bool.self)),
+        GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -2216,8 +3027,8 @@ public final class OnCreateHealRequestSubscription: GraphQLSubscription {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -2265,6 +3076,33 @@ public final class OnCreateHealRequestSubscription: GraphQLSubscription {
         }
       }
 
+      public var version: Int {
+        get {
+          return snapshot["_version"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_version")
+        }
+      }
+
+      public var deleted: Bool? {
+        get {
+          return snapshot["_deleted"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_deleted")
+        }
+      }
+
+      public var lastChangedAt: Int {
+        get {
+          return snapshot["_lastChangedAt"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -2288,7 +3126,7 @@ public final class OnCreateHealRequestSubscription: GraphQLSubscription {
 
 public final class OnUpdateHealRequestSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnUpdateHealRequest {\n  onUpdateHealRequest {\n    __typename\n    id\n    playerName\n    selectedHero\n    location\n    createdAt\n    updatedAt\n  }\n}"
+    "subscription OnUpdateHealRequest {\n  onUpdateHealRequest {\n    __typename\n    id\n    playerName\n    selectedHero\n    location\n    _version\n    _deleted\n    _lastChangedAt\n    createdAt\n    updatedAt\n  }\n}"
 
   public init() {
   }
@@ -2328,6 +3166,9 @@ public final class OnUpdateHealRequestSubscription: GraphQLSubscription {
         GraphQLField("playerName", type: .nonNull(.scalar(String.self))),
         GraphQLField("selectedHero", type: .nonNull(.scalar(String.self))),
         GraphQLField("location", type: .nonNull(.scalar(String.self))),
+        GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("_deleted", type: .scalar(Bool.self)),
+        GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -2338,8 +3179,8 @@ public final class OnUpdateHealRequestSubscription: GraphQLSubscription {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -2387,6 +3228,33 @@ public final class OnUpdateHealRequestSubscription: GraphQLSubscription {
         }
       }
 
+      public var version: Int {
+        get {
+          return snapshot["_version"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_version")
+        }
+      }
+
+      public var deleted: Bool? {
+        get {
+          return snapshot["_deleted"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_deleted")
+        }
+      }
+
+      public var lastChangedAt: Int {
+        get {
+          return snapshot["_lastChangedAt"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -2410,7 +3278,7 @@ public final class OnUpdateHealRequestSubscription: GraphQLSubscription {
 
 public final class OnDeleteHealRequestSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnDeleteHealRequest {\n  onDeleteHealRequest {\n    __typename\n    id\n    playerName\n    selectedHero\n    location\n    createdAt\n    updatedAt\n  }\n}"
+    "subscription OnDeleteHealRequest {\n  onDeleteHealRequest {\n    __typename\n    id\n    playerName\n    selectedHero\n    location\n    _version\n    _deleted\n    _lastChangedAt\n    createdAt\n    updatedAt\n  }\n}"
 
   public init() {
   }
@@ -2450,6 +3318,9 @@ public final class OnDeleteHealRequestSubscription: GraphQLSubscription {
         GraphQLField("playerName", type: .nonNull(.scalar(String.self))),
         GraphQLField("selectedHero", type: .nonNull(.scalar(String.self))),
         GraphQLField("location", type: .nonNull(.scalar(String.self))),
+        GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("_deleted", type: .scalar(Bool.self)),
+        GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -2460,8 +3331,8 @@ public final class OnDeleteHealRequestSubscription: GraphQLSubscription {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, playerName: String, selectedHero: String, location: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "HealRequest", "id": id, "playerName": playerName, "selectedHero": selectedHero, "location": location, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -2509,6 +3380,33 @@ public final class OnDeleteHealRequestSubscription: GraphQLSubscription {
         }
       }
 
+      public var version: Int {
+        get {
+          return snapshot["_version"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_version")
+        }
+      }
+
+      public var deleted: Bool? {
+        get {
+          return snapshot["_deleted"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_deleted")
+        }
+      }
+
+      public var lastChangedAt: Int {
+        get {
+          return snapshot["_lastChangedAt"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -2532,7 +3430,7 @@ public final class OnDeleteHealRequestSubscription: GraphQLSubscription {
 
 public final class OnCreateAudioInfoSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnCreateAudioInfo {\n  onCreateAudioInfo {\n    __typename\n    id\n    audioTitle\n    audioFileName\n    createdAt\n    updatedAt\n  }\n}"
+    "subscription OnCreateAudioInfo {\n  onCreateAudioInfo {\n    __typename\n    id\n    audioTitle\n    audioFileName\n    _version\n    _deleted\n    _lastChangedAt\n    createdAt\n    updatedAt\n  }\n}"
 
   public init() {
   }
@@ -2571,6 +3469,9 @@ public final class OnCreateAudioInfoSubscription: GraphQLSubscription {
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
         GraphQLField("audioTitle", type: .nonNull(.scalar(String.self))),
         GraphQLField("audioFileName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("_deleted", type: .scalar(Bool.self)),
+        GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -2581,8 +3482,8 @@ public final class OnCreateAudioInfoSubscription: GraphQLSubscription {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, audioTitle: String, audioFileName: String, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, audioTitle: String, audioFileName: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -2621,6 +3522,33 @@ public final class OnCreateAudioInfoSubscription: GraphQLSubscription {
         }
       }
 
+      public var version: Int {
+        get {
+          return snapshot["_version"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_version")
+        }
+      }
+
+      public var deleted: Bool? {
+        get {
+          return snapshot["_deleted"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_deleted")
+        }
+      }
+
+      public var lastChangedAt: Int {
+        get {
+          return snapshot["_lastChangedAt"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -2644,7 +3572,7 @@ public final class OnCreateAudioInfoSubscription: GraphQLSubscription {
 
 public final class OnUpdateAudioInfoSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnUpdateAudioInfo {\n  onUpdateAudioInfo {\n    __typename\n    id\n    audioTitle\n    audioFileName\n    createdAt\n    updatedAt\n  }\n}"
+    "subscription OnUpdateAudioInfo {\n  onUpdateAudioInfo {\n    __typename\n    id\n    audioTitle\n    audioFileName\n    _version\n    _deleted\n    _lastChangedAt\n    createdAt\n    updatedAt\n  }\n}"
 
   public init() {
   }
@@ -2683,6 +3611,9 @@ public final class OnUpdateAudioInfoSubscription: GraphQLSubscription {
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
         GraphQLField("audioTitle", type: .nonNull(.scalar(String.self))),
         GraphQLField("audioFileName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("_deleted", type: .scalar(Bool.self)),
+        GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -2693,8 +3624,8 @@ public final class OnUpdateAudioInfoSubscription: GraphQLSubscription {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, audioTitle: String, audioFileName: String, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, audioTitle: String, audioFileName: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -2733,6 +3664,33 @@ public final class OnUpdateAudioInfoSubscription: GraphQLSubscription {
         }
       }
 
+      public var version: Int {
+        get {
+          return snapshot["_version"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_version")
+        }
+      }
+
+      public var deleted: Bool? {
+        get {
+          return snapshot["_deleted"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_deleted")
+        }
+      }
+
+      public var lastChangedAt: Int {
+        get {
+          return snapshot["_lastChangedAt"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_lastChangedAt")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -2756,7 +3714,7 @@ public final class OnUpdateAudioInfoSubscription: GraphQLSubscription {
 
 public final class OnDeleteAudioInfoSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnDeleteAudioInfo {\n  onDeleteAudioInfo {\n    __typename\n    id\n    audioTitle\n    audioFileName\n    createdAt\n    updatedAt\n  }\n}"
+    "subscription OnDeleteAudioInfo {\n  onDeleteAudioInfo {\n    __typename\n    id\n    audioTitle\n    audioFileName\n    _version\n    _deleted\n    _lastChangedAt\n    createdAt\n    updatedAt\n  }\n}"
 
   public init() {
   }
@@ -2795,6 +3753,9 @@ public final class OnDeleteAudioInfoSubscription: GraphQLSubscription {
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
         GraphQLField("audioTitle", type: .nonNull(.scalar(String.self))),
         GraphQLField("audioFileName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("_version", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("_deleted", type: .scalar(Bool.self)),
+        GraphQLField("_lastChangedAt", type: .nonNull(.scalar(Int.self))),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -2805,8 +3766,8 @@ public final class OnDeleteAudioInfoSubscription: GraphQLSubscription {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, audioTitle: String, audioFileName: String, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, audioTitle: String, audioFileName: String, version: Int, deleted: Bool? = nil, lastChangedAt: Int, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "AudioInfo", "id": id, "audioTitle": audioTitle, "audioFileName": audioFileName, "_version": version, "_deleted": deleted, "_lastChangedAt": lastChangedAt, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -2842,6 +3803,33 @@ public final class OnDeleteAudioInfoSubscription: GraphQLSubscription {
         }
         set {
           snapshot.updateValue(newValue, forKey: "audioFileName")
+        }
+      }
+
+      public var version: Int {
+        get {
+          return snapshot["_version"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_version")
+        }
+      }
+
+      public var deleted: Bool? {
+        get {
+          return snapshot["_deleted"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_deleted")
+        }
+      }
+
+      public var lastChangedAt: Int {
+        get {
+          return snapshot["_lastChangedAt"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "_lastChangedAt")
         }
       }
 
