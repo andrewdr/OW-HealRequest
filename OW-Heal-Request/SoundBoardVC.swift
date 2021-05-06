@@ -85,8 +85,10 @@ class SoundBoardVC: UICollectionViewController {
         
             }
         
+        let sortedTitles = tempArray.sorted{$0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending}
         
-        cell.audioTitle?.text = tempArray[indexPath.row]
+        
+        cell.audioTitle?.text = sortedTitles[indexPath.row]
 
         return cell
     }
@@ -96,6 +98,8 @@ class SoundBoardVC: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        
+//      Plays audio
         let sortedURLs = cloudAudioURLs.sorted{$0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending}
         
             let audioURL = URL(string: sortedURLs[indexPath.row])
@@ -103,8 +107,21 @@ class SoundBoardVC: UICollectionViewController {
             
             soundClip = AVPlayer(playerItem: playerItem)
             soundClip.play()
+        
+        
+//      Changes background color of cell when selected
+        let selectedCell:UICollectionViewCell = soundBoardView.cellForItem(at: indexPath)!
+        selectedCell.contentView.backgroundColor = UIColor(red:234/255, green: 178/255, blue: 22/255, alpha: 1 )
+        
     }
     
+
+    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+        //    Changes deselected cell background color back to original color
+        let deselectedCell:UICollectionViewCell = soundBoardView.cellForItem(at: indexPath)!
+        deselectedCell.contentView.backgroundColor = UIColor.clear
+    }
 
 
     // MARK: UICollectionViewDelegate
