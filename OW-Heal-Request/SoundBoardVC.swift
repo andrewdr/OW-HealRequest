@@ -98,9 +98,6 @@ class SoundBoardVC: UICollectionViewController {
         
         let sortedURLs = cloudAudioURLs.sorted{$0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending}
         
-        print("the sorted urls are: \(sortedURLs)")
-        
-        
             let audioURL = URL(string: sortedURLs[indexPath.row])
             let playerItem =  AVPlayerItem(url: audioURL!)
             
@@ -234,8 +231,6 @@ class SoundBoardVC: UICollectionViewController {
                 }
                 
                 self.cloudAudioURLs.append(self.tempURL)
-             
-                print("The cloud audio URLS are: \(self.cloudAudioURLs)")
                 
             }
         }
