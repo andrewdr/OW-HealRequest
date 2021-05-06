@@ -26,8 +26,6 @@ class SoundBoardVC: UICollectionViewController {
         super.viewDidLoad()
         
         getAudioFiles()
-//        getAudioCloudURL()
-    
 
         // Register cell classes
 //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -93,8 +91,21 @@ class SoundBoardVC: UICollectionViewController {
         return cell
     }
     
+    var soundClip = AVPlayer()
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        
+        let audioURL = URL(string: "https://gos3bucketrequest-house.s3.us-east-2.amazonaws.com/public/Cucked.mp3")
+        
+            
+            let playerItem =  AVPlayerItem(url: audioURL!)
+            
+            soundClip = AVPlayer(playerItem: playerItem)
+            soundClip.play()
+    
+            
         
 //        var soundClip: AVAudioPlayer?
         
@@ -114,38 +125,10 @@ class SoundBoardVC: UICollectionViewController {
 //
 //        }
         
-        playAudio()
         
     }
     
-    func playAudio(){
-        
-        var soundClip: AVAudioPlayer?
-        
-        if let directory = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first{
-            
-            let path = NSURL(fileURLWithPath: directory).appendingPathComponent("Dump Trucks.mp3")
-            
-            print("The path is \(String(describing: path))")
-            
-            let url = path
-            
-            do {
-                soundClip = try AVAudioPlayer(contentsOf: url!)
-                soundClip?.play()
-                
-            }catch{
-                
-                print("Error: Audio File missing.")
-                
-            }
-            
-            
-        }
-        
-        
-    }
-    
+
 
     // MARK: UICollectionViewDelegate
 
@@ -226,8 +209,8 @@ class SoundBoardVC: UICollectionViewController {
                     audioFileArray.append(item.key)
                 }
                 
-                self.saveAudioToDataStore(audio: audioFileArray)
-                
+//                self.saveAudioToDataStore(audio: audioFileArray)
+                self.getAudioCloudURLs(audioFiles: audioFileArray)
 
                 
                 completionHandler(audioFileArray)
@@ -242,7 +225,8 @@ class SoundBoardVC: UICollectionViewController {
     func getAudioFiles(){
         listFiles(){ (audioFileArray) in
         
-        self.globalAudioFileArray = audioFileArray
+            self.globalAudioFileArray = audioFileArray
+            
             
             DispatchQueue.main.async {
                 self.soundBoardView.reloadData()
@@ -251,26 +235,36 @@ class SoundBoardVC: UICollectionViewController {
         }
     }
     
-    func getAudioCloudURL(){
+    var cloudAudioURLs: [String] = []
+    var tempURL: String = ""
+    
+    func getAudioCloudURLs(audioFiles: Array<String>){
         
-        resultSink = Amplify.Storage.getURL(key: "Cucked.mp3")
-        
-            .resultPublisher
-        
-            .sink {
-                if case let .failure(storageError) = $0 {
-                    print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
-                }
-            }
+        for audio in audioFiles{
             
-            receiveValue: { url in
-                print("Audio URL is \(url)")
+            Amplify.Storage.getURL(key: "\(audio)"){ result in
+                switch(result){
+                case .success(let savedURL):
+                    
+                    self.tempURL = savedURL.absoluteString
+                    self.tempURL = self.tempURL.components(separatedBy: "?X-Amz")[0]
+//                    self.cloudAudioURLs.append(self.tempURL)
+                    print("Saved url: \(self.tempURL)")
+                    
+                case .failure(let error):
+                    print("Could not find audio URL:\(error.errorDescription)")
+                }
+                
+                self.cloudAudioURLs.append(self.tempURL)
+                print("The cloud audio URLS are: \(self.cloudAudioURLs)")
+                
             }
+        }
     }
     
     func saveAudioToDataStore(audio:Array<String>){
         
-        let audioData = AudioInfo(audioTitle: String(audio[0]), audioFileName: String(audio[0]))
+        let audioData = AudioInfo(audioTitle: String(String(audio[0]).dropLast(4)), audioFileName: String(audio[0]))
         
         Amplify.DataStore.save(audioData){ result in
             switch(result) {
@@ -283,6 +277,6 @@ class SoundBoardVC: UICollectionViewController {
 
         }
     }
-    
-    
 }
+
+
