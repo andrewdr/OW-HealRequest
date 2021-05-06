@@ -102,6 +102,12 @@ class SoundBoardVC: UICollectionViewController {
 //      Plays audio
         let sortedURLs = cloudAudioURLs.sorted{$0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending}
         
+        do{
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+        }catch(let error) {
+            print(error.localizedDescription)
+        }
+        
             let audioURL = URL(string: sortedURLs[indexPath.row])
             let playerItem =  AVPlayerItem(url: audioURL!)
             
