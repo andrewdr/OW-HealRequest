@@ -91,41 +91,21 @@ class SoundBoardVC: UICollectionViewController {
         return cell
     }
     
+    
     var soundClip = AVPlayer()
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let sortedURLs = cloudAudioURLs.sorted{$0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending}
+        
+        print("the sorted urls are: \(sortedURLs)")
         
         
-        let audioURL = URL(string: "https://gos3bucketrequest-house.s3.us-east-2.amazonaws.com/public/Cucked.mp3")
-        
-            
+            let audioURL = URL(string: sortedURLs[indexPath.row])
             let playerItem =  AVPlayerItem(url: audioURL!)
             
             soundClip = AVPlayer(playerItem: playerItem)
             soundClip.play()
-    
-            
-        
-//        var soundClip: AVAudioPlayer?
-        
-//        let path = Bundle.main.path(forResource: globalAudioFileArray[indexPath.row], ofType: ".mp3") ?? "SIMP.mp3"
-//
-//        print("The path is \(path)")
-//
-//        let url = URL(fileURLWithPath: path)
-//
-//        do {
-//            soundClip = try AVAudioPlayer(contentsOf: url)
-//            soundClip?.play()
-//
-//        }catch{
-//
-//            print("Error: Audio File \(globalAudioFileArray[indexPath.row]) missing.")
-//
-//        }
-        
-        
     }
     
 
@@ -244,18 +224,17 @@ class SoundBoardVC: UICollectionViewController {
             
             Amplify.Storage.getURL(key: "\(audio)"){ result in
                 switch(result){
+                
                 case .success(let savedURL):
-                    
                     self.tempURL = savedURL.absoluteString
                     self.tempURL = self.tempURL.components(separatedBy: "?X-Amz")[0]
-//                    self.cloudAudioURLs.append(self.tempURL)
-                    print("Saved url: \(self.tempURL)")
                     
                 case .failure(let error):
                     print("Could not find audio URL:\(error.errorDescription)")
                 }
                 
                 self.cloudAudioURLs.append(self.tempURL)
+             
                 print("The cloud audio URLS are: \(self.cloudAudioURLs)")
                 
             }
