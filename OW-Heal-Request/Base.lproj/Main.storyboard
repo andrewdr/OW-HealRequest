@@ -148,7 +148,9 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zP1-ll-dj3" secondAttribute="trailing" constant="10" id="0rg-m4-bQd"/>
                                         <constraint firstItem="zP1-ll-dj3" firstAttribute="centerY" secondItem="Yg2-ca-VM9" secondAttribute="centerY" id="joM-sc-1xS"/>
+                                        <constraint firstItem="zP1-ll-dj3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Yg2-ca-VM9" secondAttribute="leading" constant="10" id="t9R-e6-byo"/>
                                         <constraint firstItem="zP1-ll-dj3" firstAttribute="centerX" secondItem="Yg2-ca-VM9" secondAttribute="centerX" id="ttJ-tj-eAA"/>
                                     </constraints>
                                 </collectionViewCellContentView>
