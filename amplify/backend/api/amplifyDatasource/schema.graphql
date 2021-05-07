@@ -1,7 +1,0 @@
-type HealRequest @model {
-  id: ID!
-  playerName: String!
-  selectedHero: String!
-  location: String!
-}
-

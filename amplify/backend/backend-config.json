@@ -1,20 +1,34 @@
 {
   "api": {
-    "amplifyDatasource": {
+    "GoAPI2": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
         "authConfig": {
-          "additionalAuthenticationProviders": [],
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "description": "",
-              "apiKeyExpirationDays": 7
+              "apiKeyExpirationDays": 300,
+              "description": "GoApiKey"
             }
-          }
+          },
+          "additionalAuthenticationProviders": []
         }
       }
+    }
+  },
+  "storage": {
+    "GoS3Bucket": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  },
+  "auth": {
+    "owhealrequest57cdcf88": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
     }
   }
 }

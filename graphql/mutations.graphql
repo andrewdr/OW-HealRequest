@@ -8,9 +8,6 @@ mutation CreateHealRequest(
     playerName
     selectedHero
     location
-    _version
-    _deleted
-    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -24,9 +21,6 @@ mutation UpdateHealRequest(
     playerName
     selectedHero
     location
-    _version
-    _deleted
-    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -40,9 +34,42 @@ mutation DeleteHealRequest(
     playerName
     selectedHero
     location
-    _version
-    _deleted
-    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateAudioInfo(
+  $input: CreateAudioInfoInput!
+  $condition: ModelAudioInfoConditionInput
+) {
+  createAudioInfo(input: $input, condition: $condition) {
+    id
+    audioTitle
+    audioURL
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateAudioInfo(
+  $input: UpdateAudioInfoInput!
+  $condition: ModelAudioInfoConditionInput
+) {
+  updateAudioInfo(input: $input, condition: $condition) {
+    id
+    audioTitle
+    audioURL
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteAudioInfo(
+  $input: DeleteAudioInfoInput!
+  $condition: ModelAudioInfoConditionInput
+) {
+  deleteAudioInfo(input: $input, condition: $condition) {
+    id
+    audioTitle
+    audioURL
     createdAt
     updatedAt
   }

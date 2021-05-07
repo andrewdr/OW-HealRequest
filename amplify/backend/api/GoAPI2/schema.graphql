@@ -1,0 +1,11 @@
+type HealRequest @model {
+  id: ID!
+  playerName: String!
+  selectedHero: String!
+  location: String!
+}
+
+type AudioInfo @model {
+	audioTitle: String!
+	audioFileName: String!
+}

@@ -12,7 +12,7 @@ import AmplifyPlugins
 import Combine
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate{
 
 
 
@@ -32,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
            try Amplify.add(plugin: apiPlugin)
            try Amplify.add(plugin: dataStorePlugin)
+           try Amplify.add(plugin: AWSCognitoAuthPlugin())
+           try Amplify.add(plugin: AWSS3StoragePlugin())
+//           try Amplify.add(plugin: AWSPinpointAnalyticsPlugin())
            try Amplify.configure()
            print("Initialized Amplify");
        } catch {
@@ -39,6 +42,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            print("Could not initialize Amplify: \(error)")
        }
     }
+    
+    // MARK: Push Notifications
+    
+  func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+    }
+    
+  
 
     // MARK: UISceneSession Lifecycle
 

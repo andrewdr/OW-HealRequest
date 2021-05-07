@@ -1,0 +1,76 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateHealRequest {
+  onCreateHealRequest {
+    id
+    playerName
+    selectedHero
+    location
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateHealRequest {
+  onUpdateHealRequest {
+    id
+    playerName
+    selectedHero
+    location
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteHealRequest {
+  onDeleteHealRequest {
+    id
+    playerName
+    selectedHero
+    location
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateAudioInfo {
+  onCreateAudioInfo {
+    id
+    audioTitle
+    audioFileName
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateAudioInfo {
+  onUpdateAudioInfo {
+    id
+    audioTitle
+    audioFileName
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteAudioInfo {
+  onDeleteAudioInfo {
+    id
+    audioTitle
+    audioFileName
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
