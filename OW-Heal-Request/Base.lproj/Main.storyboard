@@ -173,11 +173,11 @@
             </objects>
             <point key="canvasLocation" x="1958" y="826"/>
         </scene>
-        <!--Heals-->
+        <!--Heal Request-->
         <scene sceneID="Rh0-YX-RX2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tk8-4J-FXa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Heals" image="squareshape.fill" catalog="system" id="0KP-3b-HO5"/>
+                    <tabBarItem key="tabBarItem" title="Heal Request" image="bandage.fill" catalog="system" id="0KP-3b-HO5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9fV-dU-PMf">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -211,11 +211,11 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="89.732142857142847"/>
         </scene>
-        <!--Sound-->
+        <!--Soundboard-->
         <scene sceneID="uhO-55-caF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nck-qp-RgY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Sound" image="speaker.fill" catalog="system" id="qqI-hL-GEl"/>
+                    <tabBarItem key="tabBarItem" title="Soundboard" image="speaker.fill" catalog="system" id="qqI-hL-GEl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2CD-Ye-e7I">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -232,8 +232,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bandage.fill" catalog="system" width="128" height="122"/>
         <image name="speaker.fill" catalog="system" width="128" height="128"/>
-        <image name="squareshape.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
