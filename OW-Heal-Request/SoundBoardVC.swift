@@ -63,6 +63,7 @@ class SoundBoardVC: UICollectionViewController {
         return globalAudioFileArray.count
         
     }
+    
 
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -74,20 +75,18 @@ class SoundBoardVC: UICollectionViewController {
         cell.layer.cornerRadius = 10
         cell.audioTitle.translatesAutoresizingMaskIntoConstraints = false
         
+        
         var tempArray: [String] = []
+        
         
 //      removes file extention from title
         for titles in globalAudioFileArray {
-        
             let editedTitles = titles.dropLast(4)
-        
             tempArray.append(String(editedTitles))
-        
             }
         
+        
         let sortedTitles = tempArray.sorted{$0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending}
-        
-        
         cell.audioTitle?.text = sortedTitles[indexPath.row]
 
         return cell
@@ -226,8 +225,6 @@ class SoundBoardVC: UICollectionViewController {
         listFiles(){ (audioFileArray) in
         
             self.globalAudioFileArray = audioFileArray
-            
-            
             DispatchQueue.main.async {
                 self.soundBoardView.reloadData()
             }
@@ -274,6 +271,11 @@ class SoundBoardVC: UICollectionViewController {
 
         }
     }
+    
+
+    
+    
+    
 }
 
 
