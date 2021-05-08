@@ -110,16 +110,7 @@ class SoundBoardVC: UICollectionViewController {
             let playerItem =  AVPlayerItem(url: audioURL!)
             
             soundClip = AVPlayer(playerItem: playerItem)
-//            soundClip.play()
-        
-        let currentTime = CMTimeGetSeconds(soundClip!.currentTime())
-        
-        if currentTime > 0 {
-            soundClip!.pause()
-        }else{
-            soundClip!.play()
-        }
-        
+            soundClip?.play()
         
         
         //      Changes background color of cell when selected
@@ -130,12 +121,35 @@ class SoundBoardVC: UICollectionViewController {
     }
 
     
-    
+    //    Deselect Cell
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         
         //    Changes deselected cell background color back to original color
         let deselectedCell:UICollectionViewCell = soundBoardView.cellForItem(at: indexPath)!
         deselectedCell.contentView.backgroundColor = UIColor.clear
+    }
+    
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        
+        let cellAlreadySelected = soundBoardView.indexPathsForSelectedItems?.contains(indexPath)
+        
+        if cellAlreadySelected == true {
+            collectionView.deselectItem(at: indexPath, animated: true)
+            collectionView.delegate?.collectionView?(soundBoardView, didSelectItemAt: indexPath)
+            
+//            Clear Background Color
+            let deselectedCell:UICollectionViewCell = soundBoardView.cellForItem(at: indexPath)!
+            deselectedCell.contentView.backgroundColor = UIColor.clear
+    
+//            Stop sound clip
+            soundClip?.pause()
+            
+            return false
+        }
+        
+        return true
     }
 
 
