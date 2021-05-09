@@ -171,7 +171,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B12-q1-RDx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1958" y="826"/>
+            <point key="canvasLocation" x="2067" y="826"/>
         </scene>
         <!--Heal Request-->
         <scene sceneID="Rh0-YX-RX2">
@@ -205,6 +205,7 @@
                     <connections>
                         <segue destination="tk8-4J-FXa" kind="relationship" relationship="viewControllers" id="y4R-W1-Ury"/>
                         <segue destination="Nck-qp-RgY" kind="relationship" relationship="viewControllers" id="E9Q-4L-oHp"/>
+                        <segue destination="Fb4-OD-2g8" kind="relationship" relationship="viewControllers" id="6gc-JJ-GMH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iyz-u0-ym9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -228,12 +229,48 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T4h-9q-WTM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="826"/>
+            <point key="canvasLocation" x="1355" y="826"/>
+        </scene>
+        <!--Audio Upload-->
+        <scene sceneID="SH4-ro-g7H">
+            <objects>
+                <viewController id="KcA-nV-wXW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DNu-Jd-wh3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="4U0-2s-Hhw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Audio Upload" id="fgq-Og-SFB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vgf-Kj-7Kd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1354" y="1494"/>
+        </scene>
+        <!--Audio Upload-->
+        <scene sceneID="0n8-1m-65k">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fb4-OD-2g8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Audio Upload" image="square.and.arrow.up.fill" catalog="system" id="7Ff-Po-m9z"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KA9-ge-nfX">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KcA-nV-wXW" kind="relationship" relationship="rootViewController" id="Ay5-Xb-DPR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cJu-Ts-Qnf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="649" y="1494"/>
         </scene>
     </scenes>
     <resources>
         <image name="bandage.fill" catalog="system" width="128" height="122"/>
         <image name="speaker.fill" catalog="system" width="128" height="128"/>
+        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
