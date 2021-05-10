@@ -234,18 +234,71 @@
         <!--Audio Upload-->
         <scene sceneID="SH4-ro-g7H">
             <objects>
-                <viewController id="KcA-nV-wXW" sceneMemberID="viewController">
+                <viewController id="KcA-nV-wXW" customClass="FileUploadVCViewController" customModule="OW_Heal_Request" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DNu-Jd-wh3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AWi-Qv-Mn2">
+                                <rect key="frame" x="44" y="431" width="326" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter File Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zl4-ef-ZnI">
+                                <rect key="frame" x="44" y="402" width="120" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload your sound here in mp3 format" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nH3-0u-S8F">
+                                <rect key="frame" x="44" y="365" width="326" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="326" id="u8o-oT-rPV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Tj-jc-pok">
+                                <rect key="frame" x="301" y="473" width="69" height="38"/>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.69803921570000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addFile:" destination="KcA-nV-wXW" eventType="touchUpInside" id="oav-hb-HNh"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4U0-2s-Hhw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2Tj-jc-pok" firstAttribute="trailing" secondItem="AWi-Qv-Mn2" secondAttribute="trailing" id="4un-Tp-6Zb"/>
+                            <constraint firstItem="Zl4-ef-ZnI" firstAttribute="top" secondItem="nH3-0u-S8F" secondAttribute="bottom" constant="14" id="ABH-Qy-eq0"/>
+                            <constraint firstItem="nH3-0u-S8F" firstAttribute="top" secondItem="4U0-2s-Hhw" secondAttribute="top" constant="277" id="Wj7-oh-Tto"/>
+                            <constraint firstItem="nH3-0u-S8F" firstAttribute="trailing" secondItem="AWi-Qv-Mn2" secondAttribute="trailing" id="YoS-Wb-b4J"/>
+                            <constraint firstItem="2Tj-jc-pok" firstAttribute="top" secondItem="AWi-Qv-Mn2" secondAttribute="bottom" constant="8" symbolic="YES" id="hs5-cI-v54"/>
+                            <constraint firstItem="nH3-0u-S8F" firstAttribute="leading" secondItem="AWi-Qv-Mn2" secondAttribute="leading" id="iGy-U5-Fos"/>
+                            <constraint firstItem="AWi-Qv-Mn2" firstAttribute="top" secondItem="nH3-0u-S8F" secondAttribute="bottom" constant="43" id="jLg-uO-0CV"/>
+                            <constraint firstItem="Zl4-ef-ZnI" firstAttribute="leading" secondItem="nH3-0u-S8F" secondAttribute="leading" id="k2h-qn-ryH"/>
+                            <constraint firstItem="nH3-0u-S8F" firstAttribute="centerX" secondItem="DNu-Jd-wh3" secondAttribute="centerX" id="nW0-dt-Xot"/>
+                            <constraint firstItem="AWi-Qv-Mn2" firstAttribute="top" secondItem="Zl4-ef-ZnI" secondAttribute="bottom" constant="8" symbolic="YES" id="xY4-kw-koe"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Audio Upload" id="fgq-Og-SFB"/>
+                    <connections>
+                        <outlet property="fileName" destination="AWi-Qv-Mn2" id="LgT-Um-kwd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vgf-Kj-7Kd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1354" y="1494"/>
+            <point key="canvasLocation" x="1353.6231884057972" y="1493.9732142857142"/>
         </scene>
         <!--Audio Upload-->
         <scene sceneID="0n8-1m-65k">
