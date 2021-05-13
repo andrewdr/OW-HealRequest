@@ -151,6 +151,22 @@ class SoundBoardVC: UICollectionViewController {
         
         return true
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
+        let cellAlreadySelected = soundBoardView.indexPathsForSelectedItems?.contains(indexPath)
+        
+        if cellAlreadySelected == true {
+            
+            if soundClip?.timeControlStatus != .playing {
+                collectionView.deselectItem(at: indexPath, animated: true)
+                collectionView.delegate?.collectionView?(soundBoardView, didSelectItemAt: indexPath)
+            }
+            
+        }
+        
+        return true
+          
+    }
 
 
     // MARK: UICollectionViewDelegate

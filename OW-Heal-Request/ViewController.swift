@@ -101,6 +101,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         heroData =  ["Ana", "Ashe", "Baptiste", "Bastion", "Brigitte", "D.Va", "Doomfist", "Echo", "Genji", "Hanzo", "Junkrat", "Lucio", "McCree", "Mei", "Mercy", "Moira", "Orisa", "Pharah", "Reaper", "Reinhardt", "Roadhog", "Sigma", "Soldier: 76", "Sombra", "Symmetra", "Torbjorn", "Tracer", "Widowmaker", "Winston", "Wrecking Ball", "Zarya", "Zenyatta"]
         locationData =     ["In front of you", "Behind you", "Waiting to Spawn", "Left Sticking", "Out of Position", "Putting the team on my back"]
         
+        playerNamePicker.setValue(UIColor.white, forKey: "textColor")
+        heroPicker.setValue(UIColor.white, forKey: "textColor")
+        locationPicker.setValue(UIColor.white, forKey: "textColor")
         
     }
     
