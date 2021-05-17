@@ -105,6 +105,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         heroPicker.setValue(UIColor.white, forKey: "textColor")
         locationPicker.setValue(UIColor.white, forKey: "textColor")
         
+        
+        
     }
     
     func requestHeals(){
@@ -173,4 +175,19 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.present(requestSentAlert, animated: true, completion: nil)
     }
     
+}
+
+func animatedImages(for name: String) -> [UIImage] {
+    
+    var i = 0
+    var images = [UIImage]()
+    
+    while let image = UIImage(named: "\(name)/\(i)"){
+        images.append(image)
+        
+        i += 1
+    }
+    
+    return images
+
 }
