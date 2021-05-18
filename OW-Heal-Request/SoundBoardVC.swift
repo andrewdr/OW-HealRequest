@@ -114,10 +114,9 @@ class SoundBoardVC: UICollectionViewController {
         
         
         //      Changes background color of cell when selected
-        let selectedCell:UICollectionViewCell = soundBoardView.cellForItem(at: indexPath)!
-        selectedCell.contentView.backgroundColor = UIColor(red:234/255, green: 178/255, blue: 22/255, alpha: 1 )
-    
-        
+            
+            let selectedCell:UICollectionViewCell = soundBoardView.cellForItem(at: indexPath)!
+            selectedCell.contentView.backgroundColor = UIColor(red:234/255, green: 178/255, blue: 22/255, alpha: 1 )
     }
 
     
@@ -153,20 +152,21 @@ class SoundBoardVC: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-        let cellAlreadySelected = soundBoardView.indexPathsForSelectedItems?.contains(indexPath)
         
-        if cellAlreadySelected == true {
+
+        if soundClip?.timeControlStatus != .playing {
+            let deselectedCell:UICollectionViewCell = soundBoardView.cellForItem(at: indexPath)!
+            deselectedCell.contentView.backgroundColor = UIColor.clear
             
-            if soundClip?.timeControlStatus != .playing {
-                collectionView.deselectItem(at: indexPath, animated: true)
-                collectionView.delegate?.collectionView?(soundBoardView, didSelectItemAt: indexPath)
-            }
-            
+            return true
         }
         
         return true
-          
     }
+    
+    
+  
+    
 
 
     // MARK: UICollectionViewDelegate

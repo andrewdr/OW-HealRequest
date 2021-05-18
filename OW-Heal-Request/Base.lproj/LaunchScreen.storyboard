@@ -15,17 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LaunchScreenIcons/GO-Launch-Icon-0" translatesAutoresizingMaskIntoConstraints="NO" id="0Uq-dU-tkE">
-                                <rect key="frame" x="20" y="270" width="374" height="357"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenIcons/GO-Launch-Icon-0" translatesAutoresizingMaskIntoConstraints="NO" id="0Uq-dU-tkE">
+                                <rect key="frame" x="20" y="261" width="374" height="374"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0Uq-dU-tkE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="8Ab-LI-6M8"/>
-                            <constraint firstItem="0Uq-dU-tkE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="a3a-N7-yx1"/>
-                            <constraint firstItem="0Uq-dU-tkE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="226" id="dMe-A2-fHr"/>
-                            <constraint firstItem="0Uq-dU-tkE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="drF-KG-2sg"/>
+                            <constraint firstItem="0Uq-dU-tkE" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="0mc-qF-ewf"/>
+                            <constraint firstItem="0Uq-dU-tkE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="217" id="AFy-K6-1Bi"/>
+                            <constraint firstItem="0Uq-dU-tkE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="TI1-kw-AkZ"/>
+                            <constraint firstItem="0Uq-dU-tkE" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="vsY-Ef-VWP"/>
                         </constraints>
                     </view>
                 </viewController>
