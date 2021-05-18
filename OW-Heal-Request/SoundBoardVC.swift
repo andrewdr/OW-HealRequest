@@ -37,6 +37,8 @@ class SoundBoardVC: UICollectionViewController {
         if let flowLayout = self.soundBoardView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.itemSize = CGSize(width: 110, height: 110)
         }
+        
+        soundBoardView.contentInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
     }
 
     /*
@@ -150,23 +152,6 @@ class SoundBoardVC: UICollectionViewController {
         
         return true
     }
-    
-    override func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-        
-
-        if soundClip?.timeControlStatus != .playing {
-            let deselectedCell:UICollectionViewCell = soundBoardView.cellForItem(at: indexPath)!
-            deselectedCell.contentView.backgroundColor = UIColor.clear
-            
-            return true
-        }
-        
-        return true
-    }
-    
-    
-  
-    
 
 
     // MARK: UICollectionViewDelegate
