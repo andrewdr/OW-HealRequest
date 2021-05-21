@@ -27,8 +27,8 @@ class SoundBoardVC: UICollectionViewController {
         
         getAudioFiles()
 
-        // Register cell classes
-//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//         Register cell classes
+//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         
 
         self.soundBoardView.dataSource = self
@@ -92,6 +92,29 @@ class SoundBoardVC: UICollectionViewController {
         cell.audioTitle?.text = sortedTitles[indexPath.row]
 
         return cell
+    }
+    
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard
+                let headerView = collectionView.dequeueReusableSupplementaryView(
+                        ofKind: kind,
+                        withReuseIdentifier: "soundBoardHeader",
+                        for: indexPath) as? SoundBoardHeaderView
+            else {
+                fatalError("Invalid View Type")
+            }
+            
+            headerView.sectionLabel.text = "Wrastlin'"
+            return headerView
+        default:
+            assert(false, "Invalid Element Type")
+            
+        }
     }
     
     
