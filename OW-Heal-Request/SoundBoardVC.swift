@@ -55,7 +55,7 @@ class SoundBoardVC: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
 
-        return 1
+        return 2
         
     }
     
@@ -103,13 +103,13 @@ class SoundBoardVC: UICollectionViewController {
             guard
                 let headerView = collectionView.dequeueReusableSupplementaryView(
                         ofKind: kind,
-                        withReuseIdentifier: "soundBoardHeader",
-                        for: indexPath) as? SoundBoardHeaderView
+                        withReuseIdentifier: "NewSoundsHeader",
+                        for: indexPath) as? NewSoundsHeader
             else {
                 fatalError("Invalid View Type")
             }
             
-            headerView.sectionLabel.text = "Wrastlin'"
+            headerView.newSoundsSectionLabel.text = "New Sounds"
             return headerView
         default:
             assert(false, "Invalid Element Type")

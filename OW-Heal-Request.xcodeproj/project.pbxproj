@@ -18,7 +18,7 @@
 		D36C4DE7259A7E3E008BBC74 /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C4DE4259A7E3E008BBC74 /* AmplifyModels.swift */; };
 		D36C4DE8259A7E3E008BBC74 /* HealRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C4DE5259A7E3E008BBC74 /* HealRequest.swift */; };
 		D36C4DE9259A7E3E008BBC74 /* HealRequest+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C4DE6259A7E3E008BBC74 /* HealRequest+Schema.swift */; };
-		D384DDE726582BD7009716DF /* SoundBoardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384DDE626582BD7009716DF /* SoundBoardHeaderView.swift */; };
+		D382ECFA2660352D002A609C /* NewSoundsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D382ECF92660352D002A609C /* NewSoundsHeader.swift */; };
 		D3BC94FF25BE3879008B14CD /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC94FE25BE3879008B14CD /* Audio.swift */; };
 		D3D3C8E9259A7C8000D87275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D3C8E8259A7C8000D87275 /* AppDelegate.swift */; };
 		D3D3C8EB259A7C8000D87275 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D3C8EA259A7C8000D87275 /* SceneDelegate.swift */; };
@@ -55,7 +55,7 @@
 		D36C4DE4259A7E3E008BBC74 /* AmplifyModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmplifyModels.swift; sourceTree = "<group>"; };
 		D36C4DE5259A7E3E008BBC74 /* HealRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealRequest.swift; sourceTree = "<group>"; };
 		D36C4DE6259A7E3E008BBC74 /* HealRequest+Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HealRequest+Schema.swift"; sourceTree = "<group>"; };
-		D384DDE626582BD7009716DF /* SoundBoardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoardHeaderView.swift; sourceTree = "<group>"; };
+		D382ECF92660352D002A609C /* NewSoundsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSoundsHeader.swift; sourceTree = "<group>"; };
 		D3BC94FE25BE3879008B14CD /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		D3D3C8E5259A7C8000D87275 /* OW-Heal-Request.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OW-Heal-Request.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3D3C8E8259A7C8000D87275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 				D3D3C8EC259A7C8000D87275 /* ViewController.swift */,
 				D3D3C8EE259A7C8000D87275 /* Main.storyboard */,
 				D3222D4325A31E3B00B80BE3 /* SoundBoardVC.swift */,
-				D384DDE626582BD7009716DF /* SoundBoardHeaderView.swift */,
+				D382ECF92660352D002A609C /* NewSoundsHeader.swift */,
 				D3BC94FE25BE3879008B14CD /* Audio.swift */,
 				D35B805C25A3CD170006DA9F /* SoundBoardCellVC.swift */,
 				D3D3C8F4259A7C8200D87275 /* Assets.xcassets */,
@@ -354,9 +354,9 @@
 			files = (
 				D36C4DE7259A7E3E008BBC74 /* AmplifyModels.swift in Sources */,
 				D3D3C8ED259A7C8000D87275 /* ViewController.swift in Sources */,
-				D384DDE726582BD7009716DF /* SoundBoardHeaderView.swift in Sources */,
 				D3D3C8E9259A7C8000D87275 /* AppDelegate.swift in Sources */,
 				D36C4DE8259A7E3E008BBC74 /* HealRequest.swift in Sources */,
+				D382ECFA2660352D002A609C /* NewSoundsHeader.swift in Sources */,
 				D36C4DE9259A7E3E008BBC74 /* HealRequest+Schema.swift in Sources */,
 				D3D3C8EB259A7C8000D87275 /* SceneDelegate.swift in Sources */,
 				D3BC94FF25BE3879008B14CD /* Audio.swift in Sources */,
