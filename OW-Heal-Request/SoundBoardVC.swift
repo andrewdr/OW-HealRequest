@@ -29,8 +29,9 @@ class SoundBoardVC: UICollectionViewController {
 
 //         Register cell classes
 //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+    
+//        self.collectionView?.register(UINib(nibName: "SoundsHeader", bundle: nil), forSupplementaryViewOfKind:, withReuseIdentifier: <#T##String#>)
         
-
         self.soundBoardView.dataSource = self
         self.soundBoardView.delegate = self
         
@@ -54,16 +55,12 @@ class SoundBoardVC: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-
-        return 2
-        
+        return 1
     }
     
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
         return globalAudioFileArray.count
-        
     }
     
 
@@ -143,16 +140,6 @@ class SoundBoardVC: UICollectionViewController {
             let selectedCell:UICollectionViewCell = soundBoardView.cellForItem(at: indexPath)!
             selectedCell.contentView.backgroundColor = UIColor(red:234/255, green: 178/255, blue: 22/255, alpha: 1 )
     }
-
-    
-    //    Deselect Cell
-    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        
-        //    Changes deselected cell background color back to original color
-        let deselectedCell:UICollectionViewCell = soundBoardView.cellForItem(at: indexPath)!
-        deselectedCell.contentView.backgroundColor = UIColor.clear
-    }
-    
     
     
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
