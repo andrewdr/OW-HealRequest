@@ -10,6 +10,7 @@ projects:
         codeGenTarget: swift
         generatedFileName: GoAPI.swift
         docsFilePath: .
+        maxDepth: 5
 extensions:
   amplify:
     version: 3
